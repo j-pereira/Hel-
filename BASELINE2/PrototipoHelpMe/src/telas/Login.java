@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Login:");
+        jLabel1.setText("E-mail:");
 
         jLabel2.setText("Senha:");
 
