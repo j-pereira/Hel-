@@ -16,6 +16,8 @@ public class TelaAbigo extends javax.swing.JFrame {
      */
     public TelaAbigo() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

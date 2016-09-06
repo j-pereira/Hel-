@@ -18,6 +18,8 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
      */
     public AlterarAreasInteresse() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

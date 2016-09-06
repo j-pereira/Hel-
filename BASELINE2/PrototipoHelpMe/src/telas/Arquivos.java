@@ -16,6 +16,8 @@ public class Arquivos extends javax.swing.JFrame {
      */
     public Arquivos() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

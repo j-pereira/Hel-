@@ -16,6 +16,8 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
      */
     public Result_PesquisaUnico() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

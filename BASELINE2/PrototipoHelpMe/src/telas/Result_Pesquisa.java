@@ -16,6 +16,8 @@ public class Result_Pesquisa extends javax.swing.JFrame {
      */
     public Result_Pesquisa() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

@@ -18,6 +18,8 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
      */
     public AlterarAreasAtuacao() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

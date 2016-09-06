@@ -16,6 +16,8 @@ public class Pesquisar extends javax.swing.JFrame {
      */
     public Pesquisar() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

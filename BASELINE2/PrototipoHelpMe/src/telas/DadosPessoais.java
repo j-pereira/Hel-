@@ -18,6 +18,8 @@ public class DadosPessoais extends javax.swing.JFrame {
      */
     public DadosPessoais() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

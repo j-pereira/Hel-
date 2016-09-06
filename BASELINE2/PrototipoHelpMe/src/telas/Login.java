@@ -5,6 +5,9 @@
  */
 package telas;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author m174505
@@ -16,6 +19,14 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        /*código para redimensionar a tela, porém ficou ruim
+        Toolkit toolkit = Toolkit.getDefaultToolkit();    
+        Dimension scrnsize = toolkit.getScreenSize();    
+        setSize(scrnsize.width, scrnsize.height);
+        */
+        
     }
 
     /**
@@ -189,6 +200,8 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+                
+               
             }
         });
     }

@@ -16,6 +16,8 @@ public class AdicionarArquivo extends javax.swing.JFrame {
      */
     public AdicionarArquivo() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -118,7 +120,7 @@ public class AdicionarArquivo extends javax.swing.JFrame {
 
         jButton2.setText("Novo Arquivo");
 
-        btnIncluir.setText("Incluir");
+        btnIncluir.setText("Adicionar");
         btnIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIncluirActionPerformed(evt);

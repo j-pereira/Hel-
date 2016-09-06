@@ -18,6 +18,8 @@ public class Configuração extends javax.swing.JFrame {
      */
     public Configuração() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

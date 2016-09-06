@@ -16,6 +16,8 @@ public class ExcluirArquivo extends javax.swing.JFrame {
      */
     public ExcluirArquivo() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
