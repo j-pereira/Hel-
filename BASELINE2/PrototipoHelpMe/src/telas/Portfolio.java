@@ -221,15 +221,11 @@ public class Portfolio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnArq1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArq1ActionPerformed
-        Arquivos tela = new Arquivos();
-        tela.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_btnArq1ActionPerformed
 
     private void btnArq2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArq2ActionPerformed
-        Arquivos tela = new Arquivos();
-        tela.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_btnArq2ActionPerformed
 
     private void btnArq3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArq3ActionPerformed
