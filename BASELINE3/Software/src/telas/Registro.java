@@ -401,7 +401,7 @@ public class Registro extends javax.swing.JFrame {
         usuario.setCurriculo(txtCurriculo.getText());
         usuario.setAprendiz(true);
         
-        usuario.cadastrarUsuario();
+       // usuario.cadastrarUsuario();
         
         Login tela = new Login();
         tela.setVisible(true);

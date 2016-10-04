@@ -119,7 +119,7 @@ public class Usuario {
     
      
     
-    public void cadastrarUsuario(/*AreaAtuacao areaAtuacao, AreaInteresse areaInteresse*/){
+    public void cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
         
@@ -127,8 +127,36 @@ public class Usuario {
             String query;
             query = "INSERT INTO usuario" +
                     "(nomeUsuario, email, senha, sexo, telefone, dataNascimento, curriculo, flagAprendiz)" +
-                    "VALUES (?,?,?,?,?,?,?,?);";
+                    "VALUES (?,?,?,?,?,?,?,?);" +
                     
+                    "INSERT INTO areaDeAtuacao" +
+                    "(codAreaDeAtuacao, codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, flagAprendiz)" +
+                    "VALUES (?,?,?,?,?,?,?,?);" +
+                    
+                    "INSERT INTO usuario" +
+                    "(nomeUsuario, email, senha, sexo, telefone, dataNascimento, curriculo, flagAprendiz)" +
+                    "VALUES (?,?,?,?,?,?,?,?);";
+            
+            
+            /*
+            codAreaDeAtuacao int not null auto_increment,
+            codUsuario int null,
+            AACalculo binary not null default 0,
+            AAAlgebra binary not null default 0,
+            AAFisica binary not null default 0,
+            AAFilosofia binary not null default 0,
+            AAHistoria binary not null default 0,
+            AALogica binary not null default 0,
+            AAMatematica binary not null default 0,
+            AAOutro binary not null default 0,
+            */
+            
+            
+            
+            
+            
+            
+            
             try {
                 preparedStatement = conexao.prepareStatement(query);
                 preparedStatement.setString(1, this.getNome());
