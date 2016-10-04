@@ -303,7 +303,7 @@ public class DadosPessoais extends javax.swing.JFrame {
         int resposta;
         resposta = JOptionPane.showConfirmDialog(null,"Deseja sair?");
         if(resposta == JOptionPane.YES_OPTION){
-            Login tela = new Login();
+            TelaLogin tela = new TelaLogin();
             tela.setVisible(true);
             dispose();
         }

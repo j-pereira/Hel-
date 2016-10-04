@@ -401,9 +401,11 @@ public class Registro extends javax.swing.JFrame {
         usuario.setCurriculo(txtCurriculo.getText());
         usuario.setAprendiz(true);
         
-       // usuario.cadastrarUsuario();
+        usuario.cadastrarUsuario();
+       
+      
         
-        Login tela = new Login();
+        TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnConfirmarActionPerformed

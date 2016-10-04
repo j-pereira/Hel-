@@ -179,7 +179,7 @@ public class Help extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-            Login tela = new Login();
+            TelaLogin tela = new TelaLogin();
             tela.setVisible(true);
             dispose();
     }//GEN-LAST:event_btnSairActionPerformed

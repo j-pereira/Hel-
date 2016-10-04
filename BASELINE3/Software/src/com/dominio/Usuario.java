@@ -27,6 +27,7 @@ public class Usuario {
     private String curriculo;
     private boolean aprendiz;
 
+    public static Usuario usuarioAtual;
         
     public Usuario(){
     
@@ -43,6 +44,7 @@ public class Usuario {
         this.curriculo = curriculo;
         this.aprendiz = aprendiz;
     }
+    
     
     
     public int getId() {
@@ -119,7 +121,7 @@ public class Usuario {
     
      
     
-    public void cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
+    public void cadastrarUsuario(/*AreaAtuacao areaAtuacao, AreaInteresse areaInteresse*/){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
         
@@ -127,35 +129,18 @@ public class Usuario {
             String query;
             query = "INSERT INTO usuario" +
                     "(nomeUsuario, email, senha, sexo, telefone, dataNascimento, curriculo, flagAprendiz)" +
-                    "VALUES (?,?,?,?,?,?,?,?);" +
+                    "VALUES (?,?,?,?,?,?,?,?);";
+                    
+                    /*+
                     
                     "INSERT INTO areaDeAtuacao" +
-                    "(codAreaDeAtuacao, codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, flagAprendiz)" +
-                    "VALUES (?,?,?,?,?,?,?,?);" +
+                    "(codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, AALogica, AAMatematica, AAOutro)" +
+                    "VALUES (?,?,?,?,?,?,?,?,?);" +
                     
-                    "INSERT INTO usuario" +
-                    "(nomeUsuario, email, senha, sexo, telefone, dataNascimento, curriculo, flagAprendiz)" +
-                    "VALUES (?,?,?,?,?,?,?,?);";
-            
-            
-            /*
-            codAreaDeAtuacao int not null auto_increment,
-            codUsuario int null,
-            AACalculo binary not null default 0,
-            AAAlgebra binary not null default 0,
-            AAFisica binary not null default 0,
-            AAFilosofia binary not null default 0,
-            AAHistoria binary not null default 0,
-            AALogica binary not null default 0,
-            AAMatematica binary not null default 0,
-            AAOutro binary not null default 0,
-            */
-            
-            
-            
-            
-            
-            
+                    "INSERT INTO areaDeInteresse" +
+                    "(codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, AALogica, AAMatematica, AAOutro)" +
+                    "VALUES (?,?,?,?,?,?,?,?,?);";
+                    */
             
             try {
                 preparedStatement = conexao.prepareStatement(query);
@@ -167,6 +152,28 @@ public class Usuario {
                 preparedStatement.setString(6, this.getDataNascimento());
                 preparedStatement.setString(7, this.getCurriculo());
                 preparedStatement.setBoolean(8, this.isAprendiz());
+                
+                /*
+                preparedStatement.setInt(9, this.getId());
+                preparedStatement.setBoolean(10, areaAtuacao.isCalculo());
+                preparedStatement.setBoolean(11, areaAtuacao.isAlgebra());
+                preparedStatement.setBoolean(12, areaAtuacao.isFisica());
+                preparedStatement.setBoolean(13, areaAtuacao.isFilosofia());
+                preparedStatement.setBoolean(14, areaAtuacao.isHistoria());
+                preparedStatement.setBoolean(15, areaAtuacao.isLogica());
+                preparedStatement.setBoolean(16, areaAtuacao.isMatematica());
+                preparedStatement.setBoolean(17, areaAtuacao.isOutro());
+               
+                preparedStatement.setInt(9, this.getId());
+                preparedStatement.setBoolean(10, areaInteresse.isCalculo());
+                preparedStatement.setBoolean(11, areaInteresse.isAlgebra());
+                preparedStatement.setBoolean(12, areaInteresse.isFisica());
+                preparedStatement.setBoolean(13, areaInteresse.isFilosofia());
+                preparedStatement.setBoolean(14, areaInteresse.isHistoria());
+                preparedStatement.setBoolean(15, areaInteresse.isLogica());
+                preparedStatement.setBoolean(16, areaInteresse.isMatematica());
+                preparedStatement.setBoolean(17, areaInteresse.isOutro());
+                */
                 preparedStatement.executeUpdate();
             
             } catch (SQLException ex) {
