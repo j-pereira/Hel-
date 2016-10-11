@@ -8,6 +8,7 @@ package com.dominio;
 import com.bd.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -121,29 +122,19 @@ public class Usuario {
     
      
     
-    public void cadastrarUsuario(/*AreaAtuacao areaAtuacao, AreaInteresse areaInteresse*/){
+    public void cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
         
         if (conexao != null){
-            String query;
-            query = "INSERT INTO usuario" +
+            String query1;
+            query1 = "INSERT INTO usuario" +
                     "(nomeUsuario, email, senha, sexo, telefone, dataNascimento, curriculo, flagAprendiz)" +
                     "VALUES (?,?,?,?,?,?,?,?);";
-                    
-                    /*+
-                    
-                    "INSERT INTO areaDeAtuacao" +
-                    "(codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, AALogica, AAMatematica, AAOutro)" +
-                    "VALUES (?,?,?,?,?,?,?,?,?);" +
-                    
-                    "INSERT INTO areaDeInteresse" +
-                    "(codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, AALogica, AAMatematica, AAOutro)" +
-                    "VALUES (?,?,?,?,?,?,?,?,?);";
-                    */
             
             try {
-                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement = conexao.prepareStatement(query1);
                 preparedStatement.setString(1, this.getNome());
                 preparedStatement.setString(2, this.getEmail());
                 preparedStatement.setString(3, this.getSenha());
@@ -152,40 +143,84 @@ public class Usuario {
                 preparedStatement.setString(6, this.getDataNascimento());
                 preparedStatement.setString(7, this.getCurriculo());
                 preparedStatement.setBoolean(8, this.isAprendiz());
-                
-                /*
-                preparedStatement.setInt(9, this.getId());
-                preparedStatement.setBoolean(10, areaAtuacao.isCalculo());
-                preparedStatement.setBoolean(11, areaAtuacao.isAlgebra());
-                preparedStatement.setBoolean(12, areaAtuacao.isFisica());
-                preparedStatement.setBoolean(13, areaAtuacao.isFilosofia());
-                preparedStatement.setBoolean(14, areaAtuacao.isHistoria());
-                preparedStatement.setBoolean(15, areaAtuacao.isLogica());
-                preparedStatement.setBoolean(16, areaAtuacao.isMatematica());
-                preparedStatement.setBoolean(17, areaAtuacao.isOutro());
-               
-                preparedStatement.setInt(9, this.getId());
-                preparedStatement.setBoolean(10, areaInteresse.isCalculo());
-                preparedStatement.setBoolean(11, areaInteresse.isAlgebra());
-                preparedStatement.setBoolean(12, areaInteresse.isFisica());
-                preparedStatement.setBoolean(13, areaInteresse.isFilosofia());
-                preparedStatement.setBoolean(14, areaInteresse.isHistoria());
-                preparedStatement.setBoolean(15, areaInteresse.isLogica());
-                preparedStatement.setBoolean(16, areaInteresse.isMatematica());
-                preparedStatement.setBoolean(17, areaInteresse.isOutro());
-                */
                 preparedStatement.executeUpdate();
-            
             } catch (SQLException ex) {
                 Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
+            }
+                    
+            String query2;
+            query2 = "SELECT codUsuario FROM usuario ORDER BY codUsuario DESC LIMIT 1;";
+          
+            try{  
+                preparedStatement = conexao.prepareStatement(query2);
+                resultSet = preparedStatement.executeQuery();
+                
+                resultSet.first();
+                this.setId(resultSet.getInt("codUsuario"));
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            String query3;
+            query3 = "INSERT INTO areaDeInteresse" +
+                     "(codUsuario, AICalculo, AIAlgebra, AIFisica, AIFilosofia, AIHistoria, AILogica, AIMatematica, AIOutro)" +
+                     "VALUES (?,?,?,?,?,?,?,?,?);";
+            
+            try {
+                preparedStatement = conexao.prepareStatement(query3);
+                preparedStatement.setInt(1, this.getId());
+                preparedStatement.setBoolean(2, areaInteresse.isCalculo());
+                preparedStatement.setBoolean(3, areaInteresse.isAlgebra());
+                preparedStatement.setBoolean(4, areaInteresse.isFisica());
+                preparedStatement.setBoolean(5, areaInteresse.isFilosofia());
+                preparedStatement.setBoolean(6, areaInteresse.isHistoria());
+                preparedStatement.setBoolean(7, areaInteresse.isLogica());
+                preparedStatement.setBoolean(8, areaInteresse.isMatematica());
+                preparedStatement.setBoolean(9, areaInteresse.isOutro());
+                preparedStatement.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                    try {
+                        if(this.isAprendiz() == true)
+                            conexao.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            
+            
+            if(this.isAprendiz() != true){
+                query3 = "INSERT INTO areaDeAtuacao" +
+                         "(codUsuario, AACalculo, AAAlgebra, AAFisica, AAFilosofia, AAHistoria, AALogica, AAMatematica, AAOutro)" +
+                         "VALUES (?,?,?,?,?,?,?,?,?);";
                 try {
-                    conexao.close();
+                    preparedStatement = conexao.prepareStatement(query3);
+                    preparedStatement.setInt(1, this.getId());
+                    preparedStatement.setBoolean(2, areaAtuacao.isCalculo());
+                    preparedStatement.setBoolean(3, areaAtuacao.isAlgebra());
+                    preparedStatement.setBoolean(4, areaAtuacao.isFisica());
+                    preparedStatement.setBoolean(5, areaAtuacao.isFilosofia());
+                    preparedStatement.setBoolean(6, areaAtuacao.isHistoria());
+                    preparedStatement.setBoolean(7, areaAtuacao.isLogica());
+                    preparedStatement.setBoolean(8, areaAtuacao.isMatematica());
+                    preparedStatement.setBoolean(9, areaAtuacao.isOutro());
+                    preparedStatement.executeUpdate();
                 } catch (SQLException ex) {
                     Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }finally{
+                    try {
+                        conexao.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
-        }     
+         
+    
+       
+        }   
+    
         
     }
     
