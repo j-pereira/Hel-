@@ -44,7 +44,7 @@ public class Login {
                     usuario.setNome(resultSet.getString("nomeUsuario"));
                     usuario.setEmail(resultSet.getString("email"));
                     usuario.setSenha(resultSet.getString("senha"));
-                    usuario.setSexo(resultSet.getString("seexo"));
+                    usuario.setSexo(resultSet.getString("sexo"));
                     usuario.setDataNascimento(resultSet.getString("DataNascimento"));
                     usuario.setTelefone(Integer.parseInt(resultSet.getString("telefone")));
                     usuario.setCurriculo(resultSet.getString("Curriculo"));
