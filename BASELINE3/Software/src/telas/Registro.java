@@ -42,14 +42,14 @@ public class Registro extends javax.swing.JFrame {
         txtDataNascimento = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
+        AACalculo = new javax.swing.JCheckBox();
+        AAAlgebra = new javax.swing.JCheckBox();
+        AAFisica = new javax.swing.JCheckBox();
+        AAFilosofia = new javax.swing.JCheckBox();
+        AAHistoria = new javax.swing.JCheckBox();
+        AALogica = new javax.swing.JCheckBox();
+        AAMatematica = new javax.swing.JCheckBox();
+        AAOutro = new javax.swing.JCheckBox();
         txtEmail = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
@@ -65,14 +65,14 @@ public class Registro extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
+        AICalculo = new javax.swing.JCheckBox();
+        AIAlgebra = new javax.swing.JCheckBox();
+        AIFisica = new javax.swing.JCheckBox();
+        AIFilosofia = new javax.swing.JCheckBox();
+        AIHistoria = new javax.swing.JCheckBox();
+        AILogica = new javax.swing.JCheckBox();
+        AIMatematica = new javax.swing.JCheckBox();
+        AIOutro = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,32 +86,32 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel14.setText("Área de atuação:");
 
-        jCheckBox8.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox8.setText("Cálculo");
+        AACalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AACalculo.setText("Cálculo");
 
-        jCheckBox9.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox9.setText("Álgebra");
+        AAAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AAAlgebra.setText("Álgebra");
 
-        jCheckBox10.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox10.setText("Física");
+        AAFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AAFisica.setText("Física");
 
-        jCheckBox11.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox11.setText("Filosofia");
+        AAFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AAFilosofia.setText("Filosofia");
 
-        jCheckBox12.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox12.setText("História");
+        AAHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AAHistoria.setText("História");
 
-        jCheckBox13.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox13.setText("Lógica");
+        AALogica.setBackground(new java.awt.Color(204, 204, 255));
+        AALogica.setText("Lógica");
 
-        jCheckBox14.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox14.setText("Matemática");
+        AAMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AAMatematica.setText("Matemática");
 
-        jCheckBox15.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox15.setText("Outros");
-        jCheckBox15.addActionListener(new java.awt.event.ActionListener() {
+        AAOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AAOutro.setText("Outros");
+        AAOutro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox15ActionPerformed(evt);
+                AAOutroActionPerformed(evt);
             }
         });
 
@@ -127,16 +127,16 @@ public class Registro extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox8)
-                            .addComponent(jCheckBox9)
-                            .addComponent(jCheckBox10)
-                            .addComponent(jCheckBox11))
+                            .addComponent(AACalculo)
+                            .addComponent(AAAlgebra)
+                            .addComponent(AAFisica)
+                            .addComponent(AAFilosofia))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox12)
-                            .addComponent(jCheckBox13)
-                            .addComponent(jCheckBox14)
-                            .addComponent(jCheckBox15))))
+                            .addComponent(AAHistoria)
+                            .addComponent(AALogica)
+                            .addComponent(AAMatematica)
+                            .addComponent(AAOutro))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -145,20 +145,20 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox12))
+                    .addComponent(AACalculo)
+                    .addComponent(AAHistoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox13))
+                    .addComponent(AAAlgebra)
+                    .addComponent(AALogica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox14))
+                    .addComponent(AAFisica)
+                    .addComponent(AAMatematica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox11)
-                    .addComponent(jCheckBox15))
+                    .addComponent(AAFilosofia)
+                    .addComponent(AAOutro))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -198,32 +198,32 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel11.setText("Área de interesse:");
 
-        jCheckBox1.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox1.setText("Cálculo");
+        AICalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AICalculo.setText("Cálculo");
 
-        jCheckBox2.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox2.setText("Álgebra");
+        AIAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AIAlgebra.setText("Álgebra");
 
-        jCheckBox3.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox3.setText("Física");
+        AIFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AIFisica.setText("Física");
 
-        jCheckBox4.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox4.setText("Filosofia");
+        AIFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AIFilosofia.setText("Filosofia");
 
-        jCheckBox5.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox5.setText("História");
+        AIHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AIHistoria.setText("História");
 
-        jCheckBox6.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox6.setText("Lógica");
+        AILogica.setBackground(new java.awt.Color(204, 204, 255));
+        AILogica.setText("Lógica");
 
-        jCheckBox7.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox7.setText("Matemática");
+        AIMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AIMatematica.setText("Matemática");
 
-        jCheckBox16.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox16.setText("Outros");
-        jCheckBox16.addActionListener(new java.awt.event.ActionListener() {
+        AIOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AIOutro.setText("Outros");
+        AIOutro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox16ActionPerformed(evt);
+                AIOutroActionPerformed(evt);
             }
         });
 
@@ -236,16 +236,16 @@ public class Registro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox4))
+                            .addComponent(AICalculo)
+                            .addComponent(AIAlgebra)
+                            .addComponent(AIFisica)
+                            .addComponent(AIFilosofia))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox5)
-                            .addComponent(jCheckBox6)
-                            .addComponent(jCheckBox7)
-                            .addComponent(jCheckBox16)))
+                            .addComponent(AIHistoria)
+                            .addComponent(AILogica)
+                            .addComponent(AIMatematica)
+                            .addComponent(AIOutro)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -257,20 +257,20 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox5))
+                    .addComponent(AICalculo)
+                    .addComponent(AIHistoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox6))
+                    .addComponent(AIAlgebra)
+                    .addComponent(AILogica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox7))
+                    .addComponent(AIFisica)
+                    .addComponent(AIMatematica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox16))
+                    .addComponent(AIFilosofia)
+                    .addComponent(AIOutro))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -399,15 +399,48 @@ public class Registro extends javax.swing.JFrame {
         usuario.setDataNascimento(txtDataNascimento.getText());
         usuario.setTelefone(Integer.parseInt(txtTelefone.getText()));
         usuario.setCurriculo(txtCurriculo.getText());
-        usuario.setAprendiz(true);
         
-        usuario.cadastrarUsuario();
-       
-      
+        areaAtuacao.setCalculo(AACalculo.isSelected());
+        areaAtuacao.setAlgebra(AAAlgebra.isSelected());
+        areaAtuacao.setFisica(AAFisica.isSelected());
+        areaAtuacao.setFilosofia(AAFilosofia.isSelected());
+        areaAtuacao.setHistoria(AAHistoria.isSelected());
+        areaAtuacao.setLogica(AALogica.isSelected());
+        areaAtuacao.setMatematica(AAMatematica.isSelected());
+        areaAtuacao.setOutro(AAOutro.isSelected());
         
-        TelaLogin tela = new TelaLogin();
-        tela.setVisible(true);
-        dispose();
+        areaInteresse.setCalculo(AICalculo.isSelected());
+        areaInteresse.setAlgebra(AIAlgebra.isSelected());
+        areaInteresse.setFisica(AIFisica.isSelected());
+        areaInteresse.setFilosofia(AIFilosofia.isSelected());
+        areaInteresse.setHistoria(AIHistoria.isSelected());
+        areaInteresse.setLogica(AILogica.isSelected());
+        areaInteresse.setMatematica(AIMatematica.isSelected());
+        areaInteresse.setOutro(AIOutro.isSelected());
+        
+        if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
+          (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
+          (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
+            usuario.setAprendiz(true);
+            if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
+              (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
+              (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
+                usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                TelaLogin tela = new TelaLogin();
+                tela.setVisible(true);
+                dispose();
+               
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+            TelaLogin tela = new TelaLogin();
+            tela.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -416,13 +449,13 @@ public class Registro extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
+    private void AAOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AAOutroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox15ActionPerformed
+    }//GEN-LAST:event_AAOutroActionPerformed
 
-    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
+    private void AIOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AIOutroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox16ActionPerformed
+    }//GEN-LAST:event_AIOutroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -460,25 +493,25 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox AAAlgebra;
+    private javax.swing.JCheckBox AACalculo;
+    private javax.swing.JCheckBox AAFilosofia;
+    private javax.swing.JCheckBox AAFisica;
+    private javax.swing.JCheckBox AAHistoria;
+    private javax.swing.JCheckBox AALogica;
+    private javax.swing.JCheckBox AAMatematica;
+    private javax.swing.JCheckBox AAOutro;
+    private javax.swing.JCheckBox AIAlgebra;
+    private javax.swing.JCheckBox AICalculo;
+    private javax.swing.JCheckBox AIFilosofia;
+    private javax.swing.JCheckBox AIFisica;
+    private javax.swing.JCheckBox AIHistoria;
+    private javax.swing.JCheckBox AILogica;
+    private javax.swing.JCheckBox AIMatematica;
+    private javax.swing.JCheckBox AIOutro;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cboxSexo;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
