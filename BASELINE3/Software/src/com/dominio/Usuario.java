@@ -24,7 +24,7 @@ public class Usuario {
     private String senha;
     private String sexo;
     private String dataNascimento;
-    private int telefone;
+    private String telefone;
     private String curriculo;
     private boolean aprendiz;
 
@@ -34,7 +34,7 @@ public class Usuario {
     
     }
     
-    public Usuario(int id, String nome, String email, String senha, String sexo, String dataNascimento, int telefone, String curriculo, boolean aprendiz){
+    public Usuario(int id, String nome, String email, String senha, String sexo, String dataNascimento, String telefone, String curriculo, boolean aprendiz){
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -96,11 +96,11 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -139,7 +139,7 @@ public class Usuario {
                 preparedStatement.setString(2, this.getEmail());
                 preparedStatement.setString(3, this.getSenha());
                 preparedStatement.setString(4, this.getSexo());
-                preparedStatement.setInt(5, this.getTelefone());
+                preparedStatement.setString(5, this.getTelefone());
                 preparedStatement.setString(6, this.getDataNascimento());
                 preparedStatement.setString(7, this.getCurriculo());
                 preparedStatement.setBoolean(8, this.isAprendiz());

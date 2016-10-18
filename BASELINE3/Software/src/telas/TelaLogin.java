@@ -162,7 +162,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Usuario.usuarioAtual = login.verificarLogin(email, senha);
         
         if(Usuario.usuarioAtual == null){
-            JOptionPane.showMessageDialog(null, "Login ou senha inválidos","Acesso negado",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "E-mail ou senha inválidos","Acesso negado",JOptionPane.ERROR_MESSAGE);
         }
         else{
             Home tela = new Home();

@@ -46,7 +46,7 @@ public class Login {
                     usuario.setSenha(resultSet.getString("senha"));
                     usuario.setSexo(resultSet.getString("sexo"));
                     usuario.setDataNascimento(resultSet.getString("DataNascimento"));
-                    usuario.setTelefone(Integer.parseInt(resultSet.getString("telefone")));
+                    usuario.setTelefone(resultSet.getString("telefone"));
                     usuario.setCurriculo(resultSet.getString("Curriculo"));
                     usuario.setAprendiz(resultSet.getBoolean("flagAprendiz"));
                 }else{
