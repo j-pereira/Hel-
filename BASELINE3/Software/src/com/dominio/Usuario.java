@@ -216,16 +216,63 @@ public class Usuario {
                     }
                 }
             }
-         
-    
        
         }   
-    
+       
+    }
         
+    
+    public int atualizarUsuario(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        
+        if (conexao != null){
+            String query;
+            query = "UPDATE usuario " +
+                    "SET nomeUsuario = ?, email = ?, senha = ?, sexo = ?, telefone = ?, dataNascimento = ?, curriculo = ? " +
+                    "WHERE codUsuario = ?;";
+                              
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setString(1, this.getNome());
+                preparedStatement.setString(2, this.getEmail());
+                preparedStatement.setString(3, this.getSenha());
+                preparedStatement.setString(4, this.getSexo());
+                preparedStatement.setString(5, this.getTelefone());
+                preparedStatement.setString(6, this.getDataNascimento());
+                preparedStatement.setString(7, this.getCurriculo());
+                preparedStatement.setInt(8, this.getId());
+                preparedStatement.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                }
+            }
+        }   
+        return 1;    
     }
     
 
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   //teste Jéssica
   //teste software 
 
