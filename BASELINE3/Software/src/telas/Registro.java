@@ -415,6 +415,7 @@ public class Registro extends javax.swing.JFrame {
         Usuario usuario = new Usuario();
         AreaAtuacao areaAtuacao = new AreaAtuacao();
         AreaInteresse areaInteresse = new AreaInteresse();
+        int retorno = 0;
         
       
         if(cboxServidorEmail.getSelectedItem().toString() == "Selecione"){
@@ -453,21 +454,28 @@ public class Registro extends javax.swing.JFrame {
                 if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
                   (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
                   (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
-                    usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-                    TelaLogin tela = new TelaLogin();
-                    tela.setVisible(true);
-                    dispose();
-
+                    retorno = usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                    if(retorno == 0){
+                        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                        TelaLogin tela = new TelaLogin();
+                        tela.setVisible(true);
+                        dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
                 }
             }else{
                 usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-                TelaLogin tela = new TelaLogin();
-                tela.setVisible(true);
-                dispose();
+                if(retorno == 0){
+                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                    TelaLogin tela = new TelaLogin();
+                    tela.setVisible(true);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
         

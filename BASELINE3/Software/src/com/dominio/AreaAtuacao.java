@@ -5,6 +5,13 @@
  */
 package com.dominio;
 
+import com.bd.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jéssica
@@ -111,5 +118,51 @@ public class AreaAtuacao {
    
     
     
-            
+    
+    public int atualizarAreaAtuacao (){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        
+        if (conexao != null){
+            try {
+                String query;
+                query = "UPDATE areaDeAtuacao " +
+                        "SET AACalculo=?, AAAlgebra=?, AAFisica=?, AAFilosofia=?, AAHistoria=?, AALogica=?, AAMatematica=?, AAOutro=? " +
+                        "WHERE codUsuario = ?;";
+                
+                
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setBoolean(1, this.isCalculo());
+                preparedStatement.setBoolean(2, this.isAlgebra());
+                preparedStatement.setBoolean(3, this.isFilosofia());
+                preparedStatement.setBoolean(4, this.isFisica());
+                preparedStatement.setBoolean(5, this.isHistoria());
+                preparedStatement.setBoolean(6, this.isLogica());
+                preparedStatement.setBoolean(7, this.isMatematica());
+                preparedStatement.setBoolean(8, this.isOutro());
+                preparedStatement.setInt(9, Usuario.usuarioAtual.getId());
+                preparedStatement.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(AreaAtuacao.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(AreaAtuacao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    //fim da classe        
 }

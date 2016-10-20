@@ -233,12 +233,13 @@ public class DadosPessoais extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(cboxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(cboxServidorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(cboxServidorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -288,7 +289,7 @@ public class DadosPessoais extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Instancia instancia = Instancia.getInstancia();
-        int retorno = 0;
+        int retorno;
         
         Usuario.usuarioAtual.setNome(txtNome.getText());
         Usuario.usuarioAtual.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
@@ -298,11 +299,9 @@ public class DadosPessoais extends javax.swing.JFrame {
         Usuario.usuarioAtual.setTelefone(ftxtTelefone.getText());
         Usuario.usuarioAtual.setCurriculo(txtCurriculo.getText());
         
-        JOptionPane.showMessageDialog(null, "Usuário: " + Usuario.usuarioAtual.getNome() + " " + Usuario.usuarioAtual.getId());
-        
         retorno = Usuario.usuarioAtual.atualizarUsuario();
         
-        if(retorno == 1){
+        if(retorno == 0){
             JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
             Configuração tela = new Configuração();
             tela.setVisible(true);
@@ -312,6 +311,7 @@ public class DadosPessoais extends javax.swing.JFrame {
             DadosPessoais tela = new DadosPessoais();
             tela.setVisible(true);
             dispose();
+            
         }
         
     }//GEN-LAST:event_btnSalvarActionPerformed

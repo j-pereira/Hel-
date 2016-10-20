@@ -122,7 +122,7 @@ public class Usuario {
     
      
     
-    public void cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
+    public int cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -216,7 +216,9 @@ public class Usuario {
                     }
                 }
             }
-       
+            return 0;
+        }else{
+            return 1;
         }   
        
     }
@@ -253,9 +255,13 @@ public class Usuario {
                     
                 }
             }
+            return 0;
+        }else{
+            return 1;
         }   
-        return 1;    
+    
     }
+    
     
 
 
@@ -278,5 +284,5 @@ public class Usuario {
 
     
     
-    
+    //fim da classe 
 }
