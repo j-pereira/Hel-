@@ -6,8 +6,11 @@
 package com.dominio;
 
 import com.bd.Conexao;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -161,16 +164,22 @@ public class AreaAtuacao {
     
     
     
-    public void pesquisarAreaAtuacao (){
+    public List<Usuario> pesquisarAreaAtuacao (){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
-
+        ResultSet resultSet = null;
+        List<Usuario> listaUsuario = new ArrayList<>();
+        
+        
         if (conexao != null){
             try {
                 String query;
-                query = "SELECT nomeUsuario " +
+                query = "SELECT codUsuario, nomeUsuario " +
                         "FROM usuario " +
-                        "WHERE codUsuario IN (SELECT codUsuario FROM areaDeAtuacao WHERE (AACalculo = ?) AND (AAAlgebra = ?) AND (AAFisica = ?) AND (AAFilosofia = ?) AND (AAHistoria = ?) AND (AALogica = ?) AND (AAMatematica = ?) AND (AAOutro = ?) )";
+                        "WHERE codUsuario IN (" +
+                            "SELECT codUsuario " +
+                            "FROM areaDeAtuacao " +
+                            "WHERE (AACalculo = ?) AND (AAAlgebra = ?) AND (AAFisica = ?) AND (AAFilosofia = ?) AND (AAHistoria = ?) AND (AALogica = ?) AND (AAMatematica = ?) AND (AAOutro = ?) ); ";
 
                 preparedStatement = conexao.prepareStatement(query);
                 preparedStatement.setBoolean(1, this.isCalculo());
@@ -181,8 +190,16 @@ public class AreaAtuacao {
                 preparedStatement.setBoolean(6, this.isLogica());
                 preparedStatement.setBoolean(7, this.isMatematica());
                 preparedStatement.setBoolean(8, this.isOutro());
-                preparedStatement.setInt(9, Usuario.usuarioAtual.getId());
-                preparedStatement.executeUpdate();
+                resultSet = preparedStatement.executeQuery();
+                
+                while(resultSet.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(resultSet.getInt("codUsuario"));
+                    usuario.setNome(resultSet.getString("nomeUsuario"));
+                    
+                    listaUsuario.add(usuario);
+                }
+                               
             } 
             catch (SQLException ex){
                 Logger.getLogger(AreaAtuacao.class.getName()).log(Level.SEVERE, null, ex);
@@ -193,7 +210,10 @@ public class AreaAtuacao {
                     Logger.getLogger(AreaAtuacao.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }     
+         
+        }
+        return listaUsuario;
+           
     }
     
     

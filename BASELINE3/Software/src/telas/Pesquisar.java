@@ -5,6 +5,13 @@
  */
 package telas;
 
+import com.bd.Instancia;
+import com.dominio.AreaAtuacao;
+import com.dominio.AreaInteresse;
+import com.dominio.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author m174505
@@ -36,30 +43,30 @@ public class Pesquisar extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
+        AICalculo = new javax.swing.JCheckBox();
+        AIAlgebra = new javax.swing.JCheckBox();
+        AIFisica = new javax.swing.JCheckBox();
+        AIFilosofia = new javax.swing.JCheckBox();
+        AIHistoria = new javax.swing.JCheckBox();
+        AILogica = new javax.swing.JCheckBox();
+        AIMatematica = new javax.swing.JCheckBox();
+        AIOutro = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        chkCalculo = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jCheckBox21 = new javax.swing.JCheckBox();
-        jCheckBox22 = new javax.swing.JCheckBox();
-        btnConfirmar = new javax.swing.JButton();
+        AACalculo = new javax.swing.JCheckBox();
+        AAAlgebra = new javax.swing.JCheckBox();
+        AAFisica = new javax.swing.JCheckBox();
+        AAFilosofia = new javax.swing.JCheckBox();
+        AAHistoria = new javax.swing.JCheckBox();
+        AALogica = new javax.swing.JCheckBox();
+        AAMatematica = new javax.swing.JCheckBox();
+        AAOutro = new javax.swing.JCheckBox();
+        btnPesquisar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         rdoTodos = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,29 +134,29 @@ public class Pesquisar extends javax.swing.JFrame {
 
         jLabel14.setText("Pesquisar Áreas de interesse:");
 
-        jCheckBox8.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox8.setText("Cálculo");
+        AICalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AICalculo.setText("Cálculo");
 
-        jCheckBox9.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox9.setText("Álgebra");
+        AIAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AIAlgebra.setText("Álgebra");
 
-        jCheckBox10.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox10.setText("Física");
+        AIFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AIFisica.setText("Física");
 
-        jCheckBox11.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox11.setText("Filosofia");
+        AIFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AIFilosofia.setText("Filosofia");
 
-        jCheckBox12.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox12.setText("História");
+        AIHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AIHistoria.setText("História");
 
-        jCheckBox13.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox13.setText("Lógica");
+        AILogica.setBackground(new java.awt.Color(204, 204, 255));
+        AILogica.setText("Lógica");
 
-        jCheckBox14.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox14.setText("Matemática");
+        AIMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AIMatematica.setText("Matemática");
 
-        jCheckBox15.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox15.setText("Outros");
+        AIOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AIOutro.setText("Outros");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,20 +167,16 @@ public class Pesquisar extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox8)
-                                    .addComponent(jCheckBox9)
-                                    .addComponent(jCheckBox10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(AICalculo)
+                            .addComponent(AIAlgebra)
+                            .addComponent(AIFisica)
+                            .addComponent(AIFilosofia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox12)
-                            .addComponent(jCheckBox13)
-                            .addComponent(jCheckBox14)
-                            .addComponent(jCheckBox15)))
+                            .addComponent(AIHistoria)
+                            .addComponent(AILogica)
+                            .addComponent(AIMatematica)
+                            .addComponent(AIOutro)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -186,20 +189,20 @@ public class Pesquisar extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox12))
+                    .addComponent(AICalculo)
+                    .addComponent(AIHistoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox13))
+                    .addComponent(AIAlgebra)
+                    .addComponent(AILogica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox14))
+                    .addComponent(AIFisica)
+                    .addComponent(AIMatematica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox11)
-                    .addComponent(jCheckBox15))
+                    .addComponent(AIFilosofia)
+                    .addComponent(AIOutro))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -212,39 +215,39 @@ public class Pesquisar extends javax.swing.JFrame {
 
         jLabel16.setText("Pesquisar Áreas de atuação:");
 
-        chkCalculo.setBackground(new java.awt.Color(204, 204, 255));
-        chkCalculo.setText("Cálculo");
-        chkCalculo.addMouseListener(new java.awt.event.MouseAdapter() {
+        AACalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AACalculo.setText("Cálculo");
+        AACalculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkCalculoMouseClicked(evt);
+                AACalculoMouseClicked(evt);
             }
         });
-        chkCalculo.addActionListener(new java.awt.event.ActionListener() {
+        AACalculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkCalculoActionPerformed(evt);
+                AACalculoActionPerformed(evt);
             }
         });
 
-        jCheckBox16.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox16.setText("Álgebra");
+        AAAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AAAlgebra.setText("Álgebra");
 
-        jCheckBox17.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox17.setText("Física");
+        AAFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AAFisica.setText("Física");
 
-        jCheckBox18.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox18.setText("Filosofia");
+        AAFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AAFilosofia.setText("Filosofia");
 
-        jCheckBox19.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox19.setText("História");
+        AAHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AAHistoria.setText("História");
 
-        jCheckBox20.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox20.setText("Lógica");
+        AALogica.setBackground(new java.awt.Color(204, 204, 255));
+        AALogica.setText("Lógica");
 
-        jCheckBox21.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox21.setText("Matemática");
+        AAMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AAMatematica.setText("Matemática");
 
-        jCheckBox22.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox22.setText("Outros");
+        AAOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AAOutro.setText("Outros");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -258,20 +261,16 @@ public class Pesquisar extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkCalculo)
-                                    .addComponent(jCheckBox16)
-                                    .addComponent(jCheckBox17))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jCheckBox18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(AACalculo)
+                            .addComponent(AAAlgebra)
+                            .addComponent(AAFisica)
+                            .addComponent(AAFilosofia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox19)
-                            .addComponent(jCheckBox20)
-                            .addComponent(jCheckBox21)
-                            .addComponent(jCheckBox22))))
+                            .addComponent(AAHistoria)
+                            .addComponent(AALogica)
+                            .addComponent(AAMatematica)
+                            .addComponent(AAOutro))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -281,27 +280,27 @@ public class Pesquisar extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkCalculo)
-                    .addComponent(jCheckBox19))
+                    .addComponent(AACalculo)
+                    .addComponent(AAHistoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox16)
-                    .addComponent(jCheckBox20))
+                    .addComponent(AAAlgebra)
+                    .addComponent(AALogica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox17)
-                    .addComponent(jCheckBox21))
+                    .addComponent(AAFisica)
+                    .addComponent(AAMatematica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox18)
-                    .addComponent(jCheckBox22))
+                    .addComponent(AAFilosofia)
+                    .addComponent(AAOutro))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
-        btnConfirmar.setText("Pesquisar");
-        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarActionPerformed(evt);
+                btnPesquisarActionPerformed(evt);
             }
         });
 
@@ -335,7 +334,7 @@ public class Pesquisar extends javax.swing.JFrame {
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(376, 376, 376)
-                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(386, 386, 386)
                         .addComponent(jLabel4))
@@ -345,7 +344,7 @@ public class Pesquisar extends javax.swing.JFrame {
                                 .addGap(148, 148, 148)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(102, 102, 102)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -364,14 +363,14 @@ public class Pesquisar extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rdoTodos))
                 .addGap(18, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
-                .addComponent(btnConfirmar)
+                .addComponent(btnPesquisar)
                 .addGap(12, 12, 12)
                 .addComponent(btnVoltar)
                 .addGap(18, 18, 18))
@@ -380,11 +379,36 @@ public class Pesquisar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        Result_PesquisaUnico tela = new Result_PesquisaUnico();
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        Instancia instancia = Instancia.getInstancia();
+        List<Usuario> listaUsuario = new ArrayList<>();
+        AreaAtuacao areaAtuacao = new AreaAtuacao();
+        AreaInteresse areaInteresse = new AreaInteresse();
+        
+        areaAtuacao.setCalculo(AACalculo.isSelected());
+        areaAtuacao.setAlgebra(AAAlgebra.isSelected());
+        areaAtuacao.setFisica(AAFisica.isSelected());
+        areaAtuacao.setFilosofia(AAFilosofia.isSelected());
+        areaAtuacao.setHistoria(AAHistoria.isSelected());
+        areaAtuacao.setLogica(AALogica.isSelected());
+        areaAtuacao.setMatematica(AAMatematica.isSelected());
+        areaAtuacao.setOutro(AAOutro.isSelected());
+        
+        areaInteresse.setCalculo(AICalculo.isSelected());
+        areaInteresse.setAlgebra(AIAlgebra.isSelected());
+        areaInteresse.setFisica(AIFisica.isSelected());
+        areaInteresse.setFilosofia(AIFilosofia.isSelected());
+        areaInteresse.setHistoria(AIHistoria.isSelected());
+        areaInteresse.setLogica(AILogica.isSelected());
+        areaInteresse.setMatematica(AIMatematica.isSelected());
+        areaInteresse.setOutro(AIOutro.isSelected());
+        
+        listaUsuario = areaAtuacao.pesquisarAreaAtuacao();
+        
+        Result_PesquisaUnico tela = new Result_PesquisaUnico(listaUsuario);
         tela.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnConfirmarActionPerformed
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         Home tela = new Home();
@@ -404,21 +428,59 @@ public class Pesquisar extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void chkCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCalculoActionPerformed
+    private void AACalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AACalculoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chkCalculoActionPerformed
+    }//GEN-LAST:event_AACalculoActionPerformed
 
-    private void chkCalculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkCalculoMouseClicked
+    private void AACalculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AACalculoMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_chkCalculoMouseClicked
+    }//GEN-LAST:event_AACalculoMouseClicked
 
     private void rdoTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoTodosActionPerformed
         // TODO add your handling code here:
         if(rdoTodos.isSelected() == true){
-            chkCalculo.setEnabled(false);
+            txtNome.setEnabled(false);
+            
+            AACalculo.setEnabled(false);
+            AAAlgebra.setEnabled(false);
+            AAFisica.setEnabled(false);
+            AAFilosofia.setEnabled(false);
+            AAHistoria.setEnabled(false);
+            AALogica.setEnabled(false);
+            AAMatematica.setEnabled(false);
+            AAOutro.setEnabled(false);
+            
+            AICalculo.setEnabled(false);
+            AIAlgebra.setEnabled(false);
+            AIFisica.setEnabled(false);
+            AIFilosofia.setEnabled(false);
+            AIHistoria.setEnabled(false);
+            AILogica.setEnabled(false);
+            AIMatematica.setEnabled(false);
+            AIOutro.setEnabled(false);
+            
         }else{
-            chkCalculo.setEnabled(true);
+            txtNome.setEnabled(true);
+            
+            AACalculo.setEnabled(true);
+            AAAlgebra.setEnabled(true);
+            AAFisica.setEnabled(true);
+            AAFilosofia.setEnabled(true);
+            AAHistoria.setEnabled(true);
+            AALogica.setEnabled(true);
+            AAMatematica.setEnabled(true);
+            AAOutro.setEnabled(true);
+            
+            AICalculo.setEnabled(true);
+            AIAlgebra.setEnabled(true);
+            AIFisica.setEnabled(true);
+            AIFilosofia.setEnabled(true);
+            AIHistoria.setEnabled(true);
+            AILogica.setEnabled(true);
+            AIMatematica.setEnabled(true);
+            AIOutro.setEnabled(true);
+            
         }
 
     }//GEN-LAST:event_rdoTodosActionPerformed
@@ -459,26 +521,26 @@ public class Pesquisar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConfirmar;
+    private javax.swing.JCheckBox AAAlgebra;
+    private javax.swing.JCheckBox AACalculo;
+    private javax.swing.JCheckBox AAFilosofia;
+    private javax.swing.JCheckBox AAFisica;
+    private javax.swing.JCheckBox AAHistoria;
+    private javax.swing.JCheckBox AALogica;
+    private javax.swing.JCheckBox AAMatematica;
+    private javax.swing.JCheckBox AAOutro;
+    private javax.swing.JCheckBox AIAlgebra;
+    private javax.swing.JCheckBox AICalculo;
+    private javax.swing.JCheckBox AIFilosofia;
+    private javax.swing.JCheckBox AIFisica;
+    private javax.swing.JCheckBox AIHistoria;
+    private javax.swing.JCheckBox AILogica;
+    private javax.swing.JCheckBox AIMatematica;
+    private javax.swing.JCheckBox AIOutro;
     private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JCheckBox chkCalculo;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox22;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -488,7 +550,7 @@ public class Pesquisar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JRadioButton rdoTodos;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

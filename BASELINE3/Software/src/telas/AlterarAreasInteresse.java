@@ -292,7 +292,7 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
 
         retorno = areaInteresse.atualizarAreaInteresse();
         if(retorno == 0){
-            JOptionPane.showMessageDialog(null, "Áreas de atuação atualizadas com sucesso","Atualização realizada",JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Áreas de interesse atualizadas com sucesso","Atualização realizada",JOptionPane.PLAIN_MESSAGE);
             Configuração tela = new Configuração();
             tela.setVisible(true);
             dispose();   
