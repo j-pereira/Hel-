@@ -11,13 +11,19 @@ import com.dominio.AreaInteresse;
 import com.dominio.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import javafx.util.Pair;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author m174505
  */
 public class Pesquisar extends javax.swing.JFrame {
-
+    
+    
+    private AreaAtuacao areaAtuacao;
+    private AreaInteresse areaInteresse;
     /**
      * Creates new form Pesquisar
      */
@@ -26,7 +32,8 @@ public class Pesquisar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -322,6 +329,12 @@ public class Pesquisar extends javax.swing.JFrame {
 
         jLabel2.setText("Pesquisa por nome: ");
 
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -382,9 +395,14 @@ public class Pesquisar extends javax.swing.JFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         Instancia instancia = Instancia.getInstancia();
         List<Usuario> listaUsuario = new ArrayList<>();
-        AreaAtuacao areaAtuacao = new AreaAtuacao();
-        AreaInteresse areaInteresse = new AreaInteresse();
+        areaAtuacao = new AreaAtuacao();
+        areaInteresse = new AreaInteresse();
+        String nome;
+        Boolean todos;
         
+        nome = txtNome.getText();
+        todos = rdoTodos.isSelected();
+               
         areaAtuacao.setCalculo(AACalculo.isSelected());
         areaAtuacao.setAlgebra(AAAlgebra.isSelected());
         areaAtuacao.setFisica(AAFisica.isSelected());
@@ -403,13 +421,37 @@ public class Pesquisar extends javax.swing.JFrame {
         areaInteresse.setMatematica(AIMatematica.isSelected());
         areaInteresse.setOutro(AIOutro.isSelected());
         
-        listaUsuario = areaAtuacao.pesquisarAreaAtuacao();
+        
+        if(!nome.equals("")){
+            
+        } else if(isAreaAtuacao() && !isAreaInteresse()) {
+            listaUsuario = areaAtuacao.pesquisarAreaAtuacao();
+        } else if(isAreaInteresse() && !isAreaAtuacao()) {
+            listaUsuario = areaInteresse.pesquisarAreaInteresse();
+        }
+        
         
         Result_PesquisaUnico tela = new Result_PesquisaUnico(listaUsuario);
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnPesquisarActionPerformed
-
+    
+    private boolean isAreaAtuacao() {
+        for(Pair<String, Boolean> area : areaAtuacao.areasSelecionadas()) {
+            if(area.getValue() == true)
+                return true;
+        }            
+        return false;
+    }
+    
+    private boolean isAreaInteresse() {
+        for(Pair<String, Boolean> area : areaInteresse.areasSelecionadas()) {
+            if(area.getValue() == true)
+                return true;
+        } 
+        return false;
+    }
+    
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         Home tela = new Home();
         tela.setVisible(true);
@@ -484,6 +526,52 @@ public class Pesquisar extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_rdoTodosActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        if(txtNome.getText() != null){
+            rdoTodos.setEnabled(false);
+            
+            AACalculo.setEnabled(false);
+            AAAlgebra.setEnabled(false);
+            AAFisica.setEnabled(false);
+            AAFilosofia.setEnabled(false);
+            AAHistoria.setEnabled(false);
+            AALogica.setEnabled(false);
+            AAMatematica.setEnabled(false);
+            AAOutro.setEnabled(false);
+            
+            AICalculo.setEnabled(false);
+            AIAlgebra.setEnabled(false);
+            AIFisica.setEnabled(false);
+            AIFilosofia.setEnabled(false);
+            AIHistoria.setEnabled(false);
+            AILogica.setEnabled(false);
+            AIMatematica.setEnabled(false);
+            AIOutro.setEnabled(false);
+            
+        }else{
+            rdoTodos.setEnabled(true);
+            
+            AACalculo.setEnabled(true);
+            AAAlgebra.setEnabled(true);
+            AAFisica.setEnabled(true);
+            AAFilosofia.setEnabled(true);
+            AAHistoria.setEnabled(true);
+            AALogica.setEnabled(true);
+            AAMatematica.setEnabled(true);
+            AAOutro.setEnabled(true);
+            
+            AICalculo.setEnabled(true);
+            AIAlgebra.setEnabled(true);
+            AIFisica.setEnabled(true);
+            AIFilosofia.setEnabled(true);
+            AIHistoria.setEnabled(true);
+            AILogica.setEnabled(true);
+            AIMatematica.setEnabled(true);
+            AIOutro.setEnabled(true);
+            
+        }
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments

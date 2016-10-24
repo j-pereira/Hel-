@@ -5,6 +5,9 @@
  */
 package telas;
 
+import com.dominio.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author m174505
@@ -19,6 +22,12 @@ public class TelaAbigo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
     }
+    
+    public TelaAbigo(Usuario usuario){
+        this();
+        JOptionPane.showMessageDialog(null, "Teste: " + usuario.getNome(),"Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -6,15 +6,16 @@
 package telas;
 
 import com.dominio.Usuario;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author Jéssica
  */
 public class Result_PesquisaUnico extends javax.swing.JFrame {
+    
+    private List<Usuario> listaUsuario;
 
     /**
      * Creates new form Result_PesquisaUnico
@@ -27,16 +28,29 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
     }
     
     public Result_PesquisaUnico(List<Usuario> listaUsuario){
-        initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
+        this();
+        
+        this.listaUsuario = listaUsuario;
+        preencheLista();
+        
+    }
+    
+    public void preencheLista(){
+        DefaultListModel listModel = new DefaultListModel<String>();
+                
         for(int i=0; i<listaUsuario.size(); i++){
-            JButton btn = new JButton();
-            btn.setText(listaUsuario.get(i).getNome());
+            listModel.add(i, this.listaUsuario.get(i).getNome());
         }
-        this.btn1.setText(listaUsuario.get(0).getNome()); //somente para Pedro (Cálculo e Álgebra)
         
-        
+        listNome.setModel(listModel);
+       
+    }
+    
+    public void pesquisaUsuario(int indice){
+        Usuario usuario = this.listaUsuario.get(indice);
+        TelaAbigo tela = new TelaAbigo(usuario);
+        tela.setVisible(true);
+        dispose();
     }
 
     /**
@@ -48,22 +62,16 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn1 = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listNome = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btn1.setText("Wagner Washington Soares");
-        btn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
-            }
-        });
 
         btnVoltar.setBackground(new java.awt.Color(112, 128, 144));
         btnVoltar.setForeground(new java.awt.Color(112, 128, 144));
@@ -132,6 +140,18 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        listNome.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listNomeMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listNome);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,29 +163,23 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(322, 322, 322)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(btn1)
-                .addGap(160, 160, 160)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
                 .addComponent(btnVoltar)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        TelaAbigo tela = new TelaAbigo();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn1ActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         Pesquisar tela = new Pesquisar();
@@ -184,6 +198,10 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void listNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listNomeMouseClicked
+        pesquisaUsuario(listNome.getSelectedIndex());
+    }//GEN-LAST:event_listNomeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -221,12 +239,13 @@ public class Result_PesquisaUnico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn1;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listNome;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 
 /**
  *
@@ -214,6 +215,22 @@ public class AreaAtuacao {
         }
         return listaUsuario;
            
+    }
+    
+    public List<Pair<String, Boolean>> areasSelecionadas() {
+        List<Pair<String, Boolean>> areasSelecionadas = new ArrayList<>();
+        
+        areasSelecionadas.add(new Pair<>("Calculo", isCalculo()));
+        areasSelecionadas.add(new Pair<>("Algebra", isAlgebra()));
+        areasSelecionadas.add(new Pair<>("Fisica", isFisica()));
+        areasSelecionadas.add(new Pair<>("Filosofia", isFilosofia()));
+        areasSelecionadas.add(new Pair<>("Historia", isHistoria()));
+        areasSelecionadas.add(new Pair<>("Logica", isLogica()));
+        areasSelecionadas.add(new Pair<>("Matematica", isMatematica()));
+        areasSelecionadas.add(new Pair<>("Outro", isOutro()));
+        
+        
+        return areasSelecionadas;
     }
     
     

@@ -8,9 +8,13 @@ package com.dominio;
 import com.bd.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 
 /**
  *
@@ -161,6 +165,75 @@ public class AreaInteresse {
     
     
     
+     
+    public List<Usuario> pesquisarAreaInteresse (){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<Usuario> listaUsuario = new ArrayList<>();
+        
+        
+        if (conexao != null){
+            try {
+                String query;
+                query = "SELECT codUsuario, nomeUsuario " +
+                        "FROM usuario " +
+                        "WHERE codUsuario IN (" +
+                            "SELECT codUsuario " +
+                            "FROM areaDeInteresse " +
+                            "WHERE (AICalculo = ?) AND (AIAlgebra = ?) AND (AIFisica = ?) AND (AIFilosofia = ?) AND (AIHistoria = ?) AND (AILogica = ?) AND (AIMatematica = ?) AND (AIOutro = ?) ); ";
+
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setBoolean(1, this.isCalculo());
+                preparedStatement.setBoolean(2, this.isAlgebra());
+                preparedStatement.setBoolean(3, this.isFilosofia());
+                preparedStatement.setBoolean(4, this.isFisica());
+                preparedStatement.setBoolean(5, this.isHistoria());
+                preparedStatement.setBoolean(6, this.isLogica());
+                preparedStatement.setBoolean(7, this.isMatematica());
+                preparedStatement.setBoolean(8, this.isOutro());
+                resultSet = preparedStatement.executeQuery();
+                
+                while(resultSet.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(resultSet.getInt("codUsuario"));
+                    usuario.setNome(resultSet.getString("nomeUsuario"));
+                    
+                    listaUsuario.add(usuario);
+                }
+                               
+            } 
+            catch (SQLException ex){
+                Logger.getLogger(AreaAtuacao.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(AreaAtuacao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+         
+        }
+        return listaUsuario;
+           
+    }
+    
+     public List<Pair<String, Boolean>> areasSelecionadas() {
+        List<Pair<String, Boolean>> areasSelecionadas = new ArrayList<>();
+        
+        areasSelecionadas.add(new Pair<>("Calculo", isCalculo()));
+        areasSelecionadas.add(new Pair<>("Algebra", isAlgebra()));
+        areasSelecionadas.add(new Pair<>("Fisica", isFisica()));
+        areasSelecionadas.add(new Pair<>("Filosofia", isFilosofia()));
+        areasSelecionadas.add(new Pair<>("Historia", isHistoria()));
+        areasSelecionadas.add(new Pair<>("Logica", isLogica()));
+        areasSelecionadas.add(new Pair<>("Matematica", isMatematica()));
+        areasSelecionadas.add(new Pair<>("Outro", isOutro()));
+        
+        
+        return areasSelecionadas;
+    }
+     
     
     
     
