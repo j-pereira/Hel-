@@ -8,6 +8,7 @@ package telas;
 import com.dominio.Usuario;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,12 +38,18 @@ public class ResultadoPesquisa extends javax.swing.JFrame {
     
     public void preencheLista(){
         DefaultListModel listModel = new DefaultListModel<String>();
-                
-        for(int i=0; i<listaUsuario.size(); i++){
-            listModel.add(i, this.listaUsuario.get(i).getNome());
-        }
+        
+        if(listaUsuario.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado."  ,"Resultado da pesquisa",JOptionPane.PLAIN_MESSAGE);
+        
+        }else{
+            for(int i=0; i<listaUsuario.size(); i++){
+                listModel.add(i, this.listaUsuario.get(i).getNome());
+            }
         
         listNome.setModel(listModel);
+        }
+        
        
     }
     
