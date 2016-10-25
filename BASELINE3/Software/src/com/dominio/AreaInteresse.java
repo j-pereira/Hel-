@@ -124,6 +124,28 @@ public class AreaInteresse {
     
     
     
+    public List<Pair<String, Boolean>> areasSelecionadas() {
+        List<Pair<String, Boolean>> areasSelecionadas = new ArrayList<>();
+        
+        areasSelecionadas.add(new Pair<>("Calculo", isCalculo()));
+        areasSelecionadas.add(new Pair<>("Algebra", isAlgebra()));
+        areasSelecionadas.add(new Pair<>("Fisica", isFisica()));
+        areasSelecionadas.add(new Pair<>("Filosofia", isFilosofia()));
+        areasSelecionadas.add(new Pair<>("Historia", isHistoria()));
+        areasSelecionadas.add(new Pair<>("Logica", isLogica()));
+        areasSelecionadas.add(new Pair<>("Matematica", isMatematica()));
+        areasSelecionadas.add(new Pair<>("Outro", isOutro()));
+        
+        
+        return areasSelecionadas;
+    }
+    
+    
+    
+       
+    
+    
+    
      public int atualizarAreaInteresse (){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
@@ -176,7 +198,7 @@ public class AreaInteresse {
         if (conexao != null){
             try {
                 String query;
-                query = "SELECT codUsuario, nomeUsuario " +
+                query = "SELECT codUsuario, nomeUsuario, email, sexo, telefone, dataNascimento, curriculo " +
                         "FROM usuario " +
                         "WHERE codUsuario IN (" +
                             "SELECT codUsuario " +
@@ -198,6 +220,11 @@ public class AreaInteresse {
                     Usuario usuario = new Usuario();
                     usuario.setId(resultSet.getInt("codUsuario"));
                     usuario.setNome(resultSet.getString("nomeUsuario"));
+                    usuario.setEmail(resultSet.getString("email"));
+                    usuario.setSexo(resultSet.getString("sexo"));
+                    usuario.setTelefone(resultSet.getString("telefone"));
+                    usuario.setDataNascimento(resultSet.getString("dataNascimento"));
+                    usuario.setCurriculo(resultSet.getString("curriculo"));
                     
                     listaUsuario.add(usuario);
                 }
@@ -218,21 +245,15 @@ public class AreaInteresse {
            
     }
     
-     public List<Pair<String, Boolean>> areasSelecionadas() {
-        List<Pair<String, Boolean>> areasSelecionadas = new ArrayList<>();
-        
-        areasSelecionadas.add(new Pair<>("Calculo", isCalculo()));
-        areasSelecionadas.add(new Pair<>("Algebra", isAlgebra()));
-        areasSelecionadas.add(new Pair<>("Fisica", isFisica()));
-        areasSelecionadas.add(new Pair<>("Filosofia", isFilosofia()));
-        areasSelecionadas.add(new Pair<>("Historia", isHistoria()));
-        areasSelecionadas.add(new Pair<>("Logica", isLogica()));
-        areasSelecionadas.add(new Pair<>("Matematica", isMatematica()));
-        areasSelecionadas.add(new Pair<>("Outro", isOutro()));
-        
-        
-        return areasSelecionadas;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
      
     
     

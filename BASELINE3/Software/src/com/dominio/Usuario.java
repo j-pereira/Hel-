@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -263,10 +265,95 @@ public class Usuario {
     }
     
     
+    
+    public List<Usuario> pesquisarUsuarioPorNome(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<Usuario> listaUsuario = new ArrayList<>();
+        
+         if (conexao != null){
+            String query;
+            query = "SELECT codUsuario, nomeUsuario, email, sexo, telefone, dataNascimento, curriculo " +
+                    "FROM usuario " +
+                    "WHERE nomeUsuario LIKE ? ; ";
+            
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setString(1, this.getNome() + "%");
+                resultSet = preparedStatement.executeQuery();
 
+                while(resultSet.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(resultSet.getInt("codUsuario"));
+                    usuario.setNome(resultSet.getString("nomeUsuario"));
+                    usuario.setEmail(resultSet.getString("email"));
+                    usuario.setSexo(resultSet.getString("sexo"));
+                    usuario.setTelefone(resultSet.getString("telefone"));
+                    usuario.setDataNascimento(resultSet.getString("dataNascimento"));
+                    usuario.setCurriculo(resultSet.getString("curriculo"));
+                    
+                    listaUsuario.add(usuario);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+  
+        return listaUsuario;
+    }
 
     
     
+    
+    public List<Usuario> pesquisarTodosUsuarios(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<Usuario> listaUsuario = new ArrayList<>();
+        
+        
+         if (conexao != null){
+            String query;
+            query = "SELECT codUsuario, nomeUsuario, email, sexo, telefone, dataNascimento, curriculo FROM usuario;";
+            
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                resultSet = preparedStatement.executeQuery();
+
+                while(resultSet.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(resultSet.getInt("codUsuario"));
+                    usuario.setNome(resultSet.getString("nomeUsuario"));
+                    usuario.setEmail(resultSet.getString("email"));
+                    usuario.setSexo(resultSet.getString("sexo"));
+                    usuario.setTelefone(resultSet.getString("telefone"));
+                    usuario.setDataNascimento(resultSet.getString("dataNascimento"));
+                    usuario.setCurriculo(resultSet.getString("curriculo"));
+                    
+                    listaUsuario.add(usuario);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+  
+        return listaUsuario;
+    }
     
     
     
