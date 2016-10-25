@@ -187,7 +187,7 @@ public class ExcluirArquivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        Portfolio tela = new Portfolio();
+        TelaPortfolio tela = new TelaPortfolio();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -205,7 +205,7 @@ public class ExcluirArquivo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        Portfolio tela = new Portfolio();
+        TelaPortfolio tela = new TelaPortfolio();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnExcluirActionPerformed

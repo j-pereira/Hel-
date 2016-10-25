@@ -155,7 +155,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Portfolio tela = new Portfolio();
+        TelaPortfolio tela = new TelaPortfolio();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
