@@ -47,7 +47,7 @@ public class ResultadoPesquisa extends javax.swing.JFrame {
                 listModel.add(i, this.listaUsuario.get(i).getNome());
             }
         
-        listNome.setModel(listModel);
+            listNome.setModel(listModel);
         }
         
        

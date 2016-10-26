@@ -12,8 +12,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -31,8 +34,34 @@ public class TelaPortfolio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         
+        preencheLista();
         
     }
+    
+    
+    public void preencheLista(){
+        DefaultListModel listModel = new DefaultListModel<String>();
+        Portfolio portfolio = new Portfolio();
+        List<Portfolio> listaItem = new ArrayList<>();
+        listaItem = portfolio.listarItemPortfolio();
+        
+        if(listaItem.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Nenhum arquivo no sistema" ,"Arquivo",JOptionPane.PLAIN_MESSAGE);
+        
+        }else{
+            for(int i=0; i<listaItem.size(); i++){
+                listModel.add(i, listaItem.get(i).getNome());
+            }
+        
+            listItens.setModel(listModel);
+        }
+       
+    }
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -206,6 +235,9 @@ public class TelaPortfolio extends javax.swing.JFrame {
             String destino = "C:/Users/User/Desktop/HelpMe/BASELINE3/Software/portfolio/" + file.getName();
             
             Portfolio portfolio = new Portfolio();
+            portfolio.setNome(file.getName());
+            portfolio.setCaminho("C:/Users/User/Desktop/HelpMe/BASELINE3/Software/portfolio/");
+            
             retorno = portfolio.adicionarItem(origem, destino);
             if(retorno == 0){
                 JOptionPane.showMessageDialog(null, "Arquivo adicionado com sucesso!","Arquivo",JOptionPane.PLAIN_MESSAGE);
@@ -215,12 +247,6 @@ public class TelaPortfolio extends javax.swing.JFrame {
                           		
         }
         
-       /* 
-        
-        AdicionarArquivo tela = new AdicionarArquivo();
-        tela.setVisible(true);
-        dispose();        
-      */
     }//GEN-LAST:event_btnAdcionarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
