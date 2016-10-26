@@ -6,6 +6,7 @@
 package telas;
 
 import com.dominio.Portfolio;
+import com.dominio.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -46,16 +47,14 @@ public class TelaPortfolio extends javax.swing.JFrame {
         listaItem = portfolio.listarItemPortfolio();
         
         if(listaItem.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Nenhum arquivo no sistema" ,"Arquivo",JOptionPane.PLAIN_MESSAGE);
-        
+            listModel.add(0, "Nenhum arquivo no sistema");
         }else{
             for(int i=0; i<listaItem.size(); i++){
                 listModel.add(i, listaItem.get(i).getNome());
             }
-        
-            listItens.setModel(listModel);
         }
-       
+        listItens.setModel(listModel);
+        
     }
     
     
@@ -246,6 +245,8 @@ public class TelaPortfolio extends javax.swing.JFrame {
             }
                           		
         }
+        preencheLista();
+        
         
     }//GEN-LAST:event_btnAdcionarActionPerformed
 

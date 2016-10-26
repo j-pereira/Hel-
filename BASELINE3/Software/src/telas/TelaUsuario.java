@@ -26,6 +26,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     public TelaUsuario(Usuario usuario){
         this();
         
+        this.lblTitulo.setText(usuario.getNome().toUpperCase());
         this.lblNome.setText(usuario.getNome());
         this.lblSexo.setText(usuario.getSexo());
         this.lblEmail.setText(usuario.getEmail());
@@ -51,7 +52,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -120,9 +121,10 @@ public class TelaUsuario extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/logopequeno.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel5.setText("WAGNER");
+        lblTitulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(254, 254, 254));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("WAGNER");
 
         btnHome.setBackground(new java.awt.Color(112, 128, 144));
         btnHome.setForeground(new java.awt.Color(112, 128, 144));
@@ -148,8 +150,8 @@ public class TelaUsuario extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addGap(169, 169, 169)
-                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -162,11 +164,15 @@ public class TelaUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHome)
-                    .addComponent(btnSair)
-                    .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnHome)
+                            .addComponent(btnSair)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lblTitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -420,7 +426,6 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -432,5 +437,6 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTelefone;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
