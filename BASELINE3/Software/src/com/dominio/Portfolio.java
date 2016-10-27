@@ -6,6 +6,7 @@
 package com.dominio;
 
 import com.bd.Conexao;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -101,11 +102,26 @@ public class Portfolio {
         }
             
     }
+      
+        
+    public int baixarItem(){
+        String home = System.getProperty("user.home");
+        Path origem = Paths.get(this.getCaminho() + this.getNome());
+        Path destino = Paths.get(home + "/Downloads/" + this.getNome());
+
+        try {
+            Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
+            return 0;
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPortfolio.class.getName()).log(Level.SEVERE, null, ex);
+            return 1;
+        }
     
+    }
     
+        
     
-    
-    public List<Portfolio> listarItemPortfolio(){
+    public List<Portfolio> listarItemPortfolio(int id){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -119,7 +135,7 @@ public class Portfolio {
             
             try {
                 preparedStatement = conexao.prepareStatement(query);
-                preparedStatement.setInt(1, Usuario.usuarioAtual.getId());
+                preparedStatement.setInt(1, id);
                 resultSet = preparedStatement.executeQuery();
                 
                 while(resultSet.next()){
@@ -139,8 +155,47 @@ public class Portfolio {
     }
     
     
-    
 
+    public int excluirItem(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        
+        if(conexao != null){
+            String query;
+            query = "DELETE FROM portfolio " +
+                    "WHERE nomePortfolio = ? AND codUsuario = ?;";
+            
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setString(1, this.getNome());
+                preparedStatement.setInt(2, Usuario.usuarioAtual.getId()); 
+                preparedStatement.executeUpdate();
+
+                File file = new File(this.getCaminho() + this.getNome());
+                if(file.delete()){
+                    return 0;
+                }else{
+                    return 1;
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Portfolio.class.getName()).log(Level.SEVERE, null, ex);
+                return 1;
+            }finally{
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Portfolio.class.getName()).log(Level.SEVERE, null, ex);
+                    return 1;
+                }
+            }
+        }else{
+            return 1;
+        }
+        
+        
+
+    }
 
 
 

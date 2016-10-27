@@ -26,6 +26,8 @@ import javax.swing.JOptionPane;
  * @author m174505
  */
 public class TelaPortfolio extends javax.swing.JFrame {
+    
+    List<Portfolio> listaItem;
 
     /**
      * Creates new form Portifólio
@@ -43,8 +45,8 @@ public class TelaPortfolio extends javax.swing.JFrame {
     public void preencheLista(){
         DefaultListModel listModel = new DefaultListModel<String>();
         Portfolio portfolio = new Portfolio();
-        List<Portfolio> listaItem = new ArrayList<>();
-        listaItem = portfolio.listarItemPortfolio();
+        listaItem = portfolio.listarItemPortfolio(Usuario.usuarioAtual.getId());
+        
         
         if(listaItem.isEmpty()){
             listModel.add(0, "Nenhum arquivo no sistema");
@@ -165,6 +167,11 @@ public class TelaPortfolio extends javax.swing.JFrame {
             }
         });
 
+        listItens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listItensMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(listItens);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,6 +262,22 @@ public class TelaPortfolio extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void listItensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listItensMouseClicked
+        String texto = listItens.getSelectedValue();
+        
+        if(!texto.equals("Nenhum arquivo no sistema")){
+            if (JOptionPane.showConfirmDialog(null, "Deseja fazer o download do arquivo?", "Download", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                Portfolio item = new Portfolio();
+                item = listaItem.get(listItens.getSelectedIndex());
+                if(item.baixarItem() == 0){
+                    JOptionPane.showMessageDialog(null, "Download efetuado com sucesso! Acesse o arquivo na pasta Downloads do computador" ,"Download",JOptionPane.PLAIN_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Falha no download" ,"Download",JOptionPane.PLAIN_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_listItensMouseClicked
 
     /**
      * @param args the command line arguments

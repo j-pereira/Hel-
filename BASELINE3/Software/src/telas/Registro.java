@@ -72,13 +72,15 @@ public class Registro extends javax.swing.JFrame {
         cboxServidorEmail = new javax.swing.JComboBox<>();
         pwdSenha = new javax.swing.JPasswordField();
         ftxtTelefone = new javax.swing.JFormattedTextField();
-        ftxtDataNascimento = new javax.swing.JFormattedTextField();
+        cboxDia = new javax.swing.JComboBox<>();
+        cboxMes = new javax.swing.JComboBox<>();
+        cboxAno = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setText("Email:");
 
-        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino" }));
+        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Feminino", "Masculino" }));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -286,11 +288,11 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
-        try {
-            ftxtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        cboxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        cboxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        cboxAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -324,8 +326,12 @@ public class Registro extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ftxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboxAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel10))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
@@ -372,7 +378,9 @@ public class Registro extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(ftxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cboxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboxAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
                         .addComponent(ftxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -417,70 +425,79 @@ public class Registro extends javax.swing.JFrame {
         AreaInteresse areaInteresse = new AreaInteresse();
         int retorno = 0;
         
-      
-        if(cboxServidorEmail.getSelectedItem().toString() == "Selecione"){
-            JOptionPane.showMessageDialog(null, "Selecione um servidor de e-mail válido","Campo e-mail inválido",JOptionPane.WARNING_MESSAGE);
-        }else{
-            usuario.setNome(txtNome.getText());
-            usuario.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
-            usuario.setSenha(pwdSenha.getText());
-            usuario.setSexo(cboxSexo.getSelectedItem().toString());
-            usuario.setDataNascimento(ftxtDataNascimento.getText());
-            usuario.setTelefone(ftxtTelefone.getText());
-            usuario.setCurriculo(txtCurriculo.getText());
+        if(!txtNome.getText().equals("")){
+            if(!txtEmail.getText().equals("")){
+                if(!cboxServidorEmail.getSelectedItem().toString().equals("Selecione")){
+                    if(!pwdSenha.getText().equals("")){
+                        if(!txtCurriculo.getText().equals("")){
+                            if(!(cboxDia.getSelectedItem().equals("--")) && !(cboxMes.getSelectedItem().equals("--")) && !(cboxAno.getSelectedItem().equals("--"))){
+                                usuario.setNome(txtNome.getText());
+                                usuario.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
+                                usuario.setSenha(pwdSenha.getText());
+                                usuario.setSexo(cboxSexo.getSelectedItem().toString());
+                                usuario.setDataNascimento(cboxAno.getSelectedItem().toString() + "-" + cboxMes.getSelectedItem().toString() + "-" + cboxDia.getSelectedItem().toString());
+                                usuario.setTelefone(ftxtTelefone.getText());
+                                usuario.setCurriculo(txtCurriculo.getText());
 
-            areaAtuacao.setCalculo(AACalculo.isSelected());
-            areaAtuacao.setAlgebra(AAAlgebra.isSelected());
-            areaAtuacao.setFisica(AAFisica.isSelected());
-            areaAtuacao.setFilosofia(AAFilosofia.isSelected());
-            areaAtuacao.setHistoria(AAHistoria.isSelected());
-            areaAtuacao.setLogica(AALogica.isSelected());
-            areaAtuacao.setMatematica(AAMatematica.isSelected());
-            areaAtuacao.setOutro(AAOutro.isSelected());
+                                areaAtuacao.setCalculo(AACalculo.isSelected());
+                                areaAtuacao.setAlgebra(AAAlgebra.isSelected());
+                                areaAtuacao.setFisica(AAFisica.isSelected());
+                                areaAtuacao.setFilosofia(AAFilosofia.isSelected());
+                                areaAtuacao.setHistoria(AAHistoria.isSelected());
+                                areaAtuacao.setLogica(AALogica.isSelected());
+                                areaAtuacao.setMatematica(AAMatematica.isSelected());
+                                areaAtuacao.setOutro(AAOutro.isSelected());
 
-            areaInteresse.setCalculo(AICalculo.isSelected());
-            areaInteresse.setAlgebra(AIAlgebra.isSelected());
-            areaInteresse.setFisica(AIFisica.isSelected());
-            areaInteresse.setFilosofia(AIFilosofia.isSelected());
-            areaInteresse.setHistoria(AIHistoria.isSelected());
-            areaInteresse.setLogica(AILogica.isSelected());
-            areaInteresse.setMatematica(AIMatematica.isSelected());
-            areaInteresse.setOutro(AIOutro.isSelected());
+                                areaInteresse.setCalculo(AICalculo.isSelected());
+                                areaInteresse.setAlgebra(AIAlgebra.isSelected());
+                                areaInteresse.setFisica(AIFisica.isSelected());
+                                areaInteresse.setFilosofia(AIFilosofia.isSelected());
+                                areaInteresse.setHistoria(AIHistoria.isSelected());
+                                areaInteresse.setLogica(AILogica.isSelected());
+                                areaInteresse.setMatematica(AIMatematica.isSelected());
+                                areaInteresse.setOutro(AIOutro.isSelected());
 
-            if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
-              (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
-              (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
-                usuario.setAprendiz(true);
-                if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
-                  (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
-                  (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
-                    retorno = usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-                    if(retorno == 0){
-                        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-                        TelaLogin tela = new TelaLogin();
-                        tela.setVisible(true);
-                        dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                                if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
+                                  (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
+                                  (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
+                                    usuario.setAprendiz(true);
+                                    if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
+                                      (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
+                                      (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
+                                        retorno = usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                                        if(retorno == 0){
+                                            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                                            TelaLogin tela = new TelaLogin();
+                                            tela.setVisible(true);
+                                            dispose();
+                                        }else{
+                                            JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                                        }
+                                    }else{
+                                        JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
+                                    }
+                                }else{
+                                    usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                                    if(retorno == 0){
+                                        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                                        TelaLogin tela = new TelaLogin();
+                                        tela.setVisible(true);
+                                        dispose();
+                                    }else{
+                                        JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                                    }
+                                }
+                            }
+                        }
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
                 }
-            }else{
-                usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-                if(retorno == 0){
-                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-                    TelaLogin tela = new TelaLogin();
-                    tela.setVisible(true);
-                    dispose();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
+                
             }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Campos obrigatórios não foram preenchidos", "Campos obrigatórios", JOptionPane.ERROR_MESSAGE);            
         }
-        
-      
-        
+              
         
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
@@ -556,9 +573,11 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JCheckBox AIOutro;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> cboxAno;
+    private javax.swing.JComboBox<String> cboxDia;
+    private javax.swing.JComboBox<String> cboxMes;
     private javax.swing.JComboBox<String> cboxServidorEmail;
     private javax.swing.JComboBox<String> cboxSexo;
-    private javax.swing.JFormattedTextField ftxtDataNascimento;
     private javax.swing.JFormattedTextField ftxtTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
