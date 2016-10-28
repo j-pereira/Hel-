@@ -5,6 +5,9 @@
  */
 package telas;
 
+import com.bd.Instancia;
+import com.dominio.AreaAtuacao;
+import com.dominio.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,14 +42,14 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
         btnHome = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        chkCalculo = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jCheckBox21 = new javax.swing.JCheckBox();
-        jCheckBox22 = new javax.swing.JCheckBox();
+        AACalculo = new javax.swing.JCheckBox();
+        AAAlgebra = new javax.swing.JCheckBox();
+        AAFisica = new javax.swing.JCheckBox();
+        AAFilosofia = new javax.swing.JCheckBox();
+        AAHistoria = new javax.swing.JCheckBox();
+        AALogica = new javax.swing.JCheckBox();
+        AAMatematica = new javax.swing.JCheckBox();
+        AAOutro = new javax.swing.JCheckBox();
         btnSlavar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,39 +123,39 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
 
         jLabel16.setText("Editar áreas:");
 
-        chkCalculo.setBackground(new java.awt.Color(204, 204, 255));
-        chkCalculo.setText("Cálculo");
-        chkCalculo.addMouseListener(new java.awt.event.MouseAdapter() {
+        AACalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AACalculo.setText("Cálculo");
+        AACalculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkCalculoMouseClicked(evt);
+                AACalculoMouseClicked(evt);
             }
         });
-        chkCalculo.addActionListener(new java.awt.event.ActionListener() {
+        AACalculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkCalculoActionPerformed(evt);
+                AACalculoActionPerformed(evt);
             }
         });
 
-        jCheckBox16.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox16.setText("Álgebra");
+        AAAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AAAlgebra.setText("Álgebra");
 
-        jCheckBox17.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox17.setText("Física");
+        AAFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AAFisica.setText("Física");
 
-        jCheckBox18.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox18.setText("Filosofia");
+        AAFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AAFilosofia.setText("Filosofia");
 
-        jCheckBox19.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox19.setText("História");
+        AAHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AAHistoria.setText("História");
 
-        jCheckBox20.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox20.setText("Lógica");
+        AALogica.setBackground(new java.awt.Color(204, 204, 255));
+        AALogica.setText("Lógica");
 
-        jCheckBox21.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox21.setText("Matemática");
+        AAMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AAMatematica.setText("Matemática");
 
-        jCheckBox22.setBackground(new java.awt.Color(204, 204, 255));
-        jCheckBox22.setText("Outros");
+        AAOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AAOutro.setText("Outros");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -166,20 +169,16 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkCalculo)
-                                    .addComponent(jCheckBox16)
-                                    .addComponent(jCheckBox17))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jCheckBox18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(AACalculo)
+                            .addComponent(AAAlgebra)
+                            .addComponent(AAFisica)
+                            .addComponent(AAFilosofia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox19)
-                            .addComponent(jCheckBox20)
-                            .addComponent(jCheckBox21)
-                            .addComponent(jCheckBox22))))
+                            .addComponent(AAHistoria)
+                            .addComponent(AALogica)
+                            .addComponent(AAMatematica)
+                            .addComponent(AAOutro))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -189,20 +188,20 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkCalculo)
-                    .addComponent(jCheckBox19))
+                    .addComponent(AACalculo)
+                    .addComponent(AAHistoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox16)
-                    .addComponent(jCheckBox20))
+                    .addComponent(AAAlgebra)
+                    .addComponent(AALogica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox17)
-                    .addComponent(jCheckBox21))
+                    .addComponent(AAFisica)
+                    .addComponent(AAMatematica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox18)
-                    .addComponent(jCheckBox22))
+                    .addComponent(AAFilosofia)
+                    .addComponent(AAOutro))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
@@ -270,19 +269,50 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void chkCalculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkCalculoMouseClicked
+    private void AACalculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AACalculoMouseClicked
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_chkCalculoMouseClicked
+    }//GEN-LAST:event_AACalculoMouseClicked
 
-    private void chkCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCalculoActionPerformed
+    private void AACalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AACalculoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chkCalculoActionPerformed
+    }//GEN-LAST:event_AACalculoActionPerformed
 
     private void btnSlavarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlavarActionPerformed
-        Configuração tela = new Configuração();
-        tela.setVisible(true);
-        dispose();
+        Instancia instancia = Instancia.getInstancia();
+        AreaAtuacao areaAtuacao = new AreaAtuacao();
+        int retorno;
+        
+        /*
+        FAZER: Verificar se o usuário já possui área de atuação
+        */
+        
+        areaAtuacao.setCalculo(AACalculo.isSelected());
+        areaAtuacao.setAlgebra(AAAlgebra.isSelected());
+        areaAtuacao.setFisica(AAFisica.isSelected());
+        areaAtuacao.setFilosofia(AAFilosofia.isSelected());
+        areaAtuacao.setHistoria(AAHistoria.isSelected());
+        areaAtuacao.setLogica(AALogica.isSelected());
+        areaAtuacao.setMatematica(AAMatematica.isSelected());
+        areaAtuacao.setOutro(AAOutro.isSelected());
+
+        retorno = areaAtuacao.atualizarAreaAtuacao();
+        JOptionPane.showMessageDialog(null, " " + areaAtuacao.isHistoria() + " " + areaAtuacao.isLogica() ,"Atualização realizada",JOptionPane.PLAIN_MESSAGE);
+        if(retorno == 0){
+            JOptionPane.showMessageDialog(null, "Áreas de atuação atualizadas com sucesso","Atualização realizada",JOptionPane.PLAIN_MESSAGE);
+            Configuração tela = new Configuração();
+            tela.setVisible(true);
+            dispose();   
+        }else{
+            JOptionPane.showMessageDialog(null, "Atualização não realizada", "Erro", JOptionPane.ERROR_MESSAGE);
+            DadosPessoais tela = new DadosPessoais();
+            tela.setVisible(true);
+            dispose();
+            
+        }
+        
+              
+       
     }//GEN-LAST:event_btnSlavarActionPerformed
 
     /**
@@ -321,18 +351,18 @@ public class AlterarAreasAtuacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox AAAlgebra;
+    private javax.swing.JCheckBox AACalculo;
+    private javax.swing.JCheckBox AAFilosofia;
+    private javax.swing.JCheckBox AAFisica;
+    private javax.swing.JCheckBox AAHistoria;
+    private javax.swing.JCheckBox AALogica;
+    private javax.swing.JCheckBox AAMatematica;
+    private javax.swing.JCheckBox AAOutro;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSlavar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JCheckBox chkCalculo;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox22;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;

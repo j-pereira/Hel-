@@ -197,24 +197,17 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="chkCalculo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jCheckBox18" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="2" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="AICalculo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="AIAlgebra" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="AIFisica" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="AIFilosofia" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="97" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCheckBox19" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBox20" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBox21" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBox22" min="-2" max="-2" attributes="0"/>
+                              <Component id="AIHistoria" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="AILogica" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="AIMatematica" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="AIOutro" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -229,23 +222,23 @@
                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="chkCalculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox19" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AICalculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AIHistoria" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox20" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AIAlgebra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AILogica" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox17" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox21" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AIFisica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AIMatematica" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jCheckBox18" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox22" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="AIFilosofia" min="-2" max="-2" attributes="0"/>
+                      <Component id="AIOutro" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
               </Group>
@@ -258,7 +251,7 @@
             <Property name="text" type="java.lang.String" value="Editar &#xe1;reas:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chkCalculo">
+        <Component class="javax.swing.JCheckBox" name="AICalculo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -266,11 +259,11 @@
             <Property name="text" type="java.lang.String" value="C&#xe1;lculo"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkCalculoMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCalculoActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AICalculoMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AICalculoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox16">
+        <Component class="javax.swing.JCheckBox" name="AIAlgebra">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -278,7 +271,7 @@
             <Property name="text" type="java.lang.String" value="&#xc1;lgebra"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox17">
+        <Component class="javax.swing.JCheckBox" name="AIFisica">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -286,7 +279,7 @@
             <Property name="text" type="java.lang.String" value="F&#xed;sica"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox18">
+        <Component class="javax.swing.JCheckBox" name="AIFilosofia">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -294,7 +287,7 @@
             <Property name="text" type="java.lang.String" value="Filosofia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox19">
+        <Component class="javax.swing.JCheckBox" name="AIHistoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -302,7 +295,7 @@
             <Property name="text" type="java.lang.String" value="Hist&#xf3;ria"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox20">
+        <Component class="javax.swing.JCheckBox" name="AILogica">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -310,7 +303,7 @@
             <Property name="text" type="java.lang.String" value="L&#xf3;gica"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox21">
+        <Component class="javax.swing.JCheckBox" name="AIMatematica">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -318,7 +311,7 @@
             <Property name="text" type="java.lang.String" value="Matem&#xe1;tica"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox22">
+        <Component class="javax.swing.JCheckBox" name="AIOutro">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>

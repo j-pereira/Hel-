@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +26,7 @@ public class Usuario {
     private String senha;
     private String sexo;
     private String dataNascimento;
-    private int telefone;
+    private String telefone;
     private String curriculo;
     private boolean aprendiz;
 
@@ -34,7 +36,7 @@ public class Usuario {
     
     }
     
-    public Usuario(int id, String nome, String email, String senha, String sexo, String dataNascimento, int telefone, String curriculo, boolean aprendiz){
+    public Usuario(int id, String nome, String email, String senha, String sexo, String dataNascimento, String telefone, String curriculo, boolean aprendiz){
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -96,11 +98,11 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -122,7 +124,7 @@ public class Usuario {
     
      
     
-    public void cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
+    public int cadastrarUsuario(AreaAtuacao areaAtuacao, AreaInteresse areaInteresse){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -139,7 +141,7 @@ public class Usuario {
                 preparedStatement.setString(2, this.getEmail());
                 preparedStatement.setString(3, this.getSenha());
                 preparedStatement.setString(4, this.getSexo());
-                preparedStatement.setInt(5, this.getTelefone());
+                preparedStatement.setString(5, this.getTelefone());
                 preparedStatement.setString(6, this.getDataNascimento());
                 preparedStatement.setString(7, this.getCurriculo());
                 preparedStatement.setBoolean(8, this.isAprendiz());
@@ -216,20 +218,158 @@ public class Usuario {
                     }
                 }
             }
-         
-    
+            return 0;
+        }else{
+            return 1;
+        }   
        
+    }
+        
+    
+    public int atualizarUsuario(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        
+        if (conexao != null){
+            String query;
+            query = "UPDATE usuario " +
+                    "SET nomeUsuario = ?, email = ?, senha = ?, sexo = ?, telefone = ?, dataNascimento = ?, curriculo = ? " +
+                    "WHERE codUsuario = ?;";
+                              
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setString(1, this.getNome());
+                preparedStatement.setString(2, this.getEmail());
+                preparedStatement.setString(3, this.getSenha());
+                preparedStatement.setString(4, this.getSexo());
+                preparedStatement.setString(5, this.getTelefone());
+                preparedStatement.setString(6, this.getDataNascimento());
+                preparedStatement.setString(7, this.getCurriculo());
+                preparedStatement.setInt(8, this.getId());
+                preparedStatement.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                }
+            }
+            return 0;
+        }else{
+            return 1;
         }   
     
-        
     }
     
+    
+    
+    public List<Usuario> pesquisarUsuarioPorNome(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<Usuario> listaUsuario = new ArrayList<>();
+        
+         if (conexao != null){
+            String query;
+            query = "SELECT codUsuario, nomeUsuario, email, sexo, telefone, dataNascimento, curriculo " +
+                    "FROM usuario " +
+                    "WHERE nomeUsuario LIKE ? ; ";
+            
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                preparedStatement.setString(1, this.getNome() + "%");
+                resultSet = preparedStatement.executeQuery();
 
+                while(resultSet.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(resultSet.getInt("codUsuario"));
+                    usuario.setNome(resultSet.getString("nomeUsuario"));
+                    usuario.setEmail(resultSet.getString("email"));
+                    usuario.setSexo(resultSet.getString("sexo"));
+                    usuario.setTelefone(resultSet.getString("telefone"));
+                    usuario.setDataNascimento(resultSet.getString("dataNascimento"));
+                    usuario.setCurriculo(resultSet.getString("curriculo"));
+                    
+                    listaUsuario.add(usuario);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+  
+        return listaUsuario;
+    }
 
+    
+    
+    
+    public List<Usuario> pesquisarTodosUsuarios(){
+        Connection conexao = Conexao.getConexao();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<Usuario> listaUsuario = new ArrayList<>();
+        
+        
+         if (conexao != null){
+            String query;
+            query = "SELECT codUsuario, nomeUsuario, email, sexo, telefone, dataNascimento, curriculo FROM usuario;";
+            
+            try {
+                preparedStatement = conexao.prepareStatement(query);
+                resultSet = preparedStatement.executeQuery();
+
+                while(resultSet.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(resultSet.getInt("codUsuario"));
+                    usuario.setNome(resultSet.getString("nomeUsuario"));
+                    usuario.setEmail(resultSet.getString("email"));
+                    usuario.setSexo(resultSet.getString("sexo"));
+                    usuario.setTelefone(resultSet.getString("telefone"));
+                    usuario.setDataNascimento(resultSet.getString("dataNascimento"));
+                    usuario.setCurriculo(resultSet.getString("curriculo"));
+                    
+                    listaUsuario.add(usuario);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+  
+        return listaUsuario;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   //teste Jéssica
   //teste software 
 
     
     
-    
+    //fim da classe 
 }

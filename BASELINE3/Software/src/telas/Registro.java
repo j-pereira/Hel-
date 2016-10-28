@@ -10,7 +10,6 @@ import com.dominio.AreaAtuacao;
 import com.dominio.AreaInteresse;
 import com.dominio.Usuario;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author m174505
@@ -39,7 +38,6 @@ public class Registro extends javax.swing.JFrame {
         txtCurriculo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         cboxSexo = new javax.swing.JComboBox<>();
-        txtDataNascimento = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         AACalculo = new javax.swing.JCheckBox();
@@ -56,10 +54,8 @@ public class Registro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
         btnConfirmar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -73,13 +69,18 @@ public class Registro extends javax.swing.JFrame {
         AILogica = new javax.swing.JCheckBox();
         AIMatematica = new javax.swing.JCheckBox();
         AIOutro = new javax.swing.JCheckBox();
+        cboxServidorEmail = new javax.swing.JComboBox<>();
+        pwdSenha = new javax.swing.JPasswordField();
+        ftxtTelefone = new javax.swing.JFormattedTextField();
+        cboxDia = new javax.swing.JComboBox<>();
+        cboxMes = new javax.swing.JComboBox<>();
+        cboxAno = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setText("Email:");
 
-        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino" }));
-        cboxSexo.setSelectedIndex(-1);
+        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Feminino", "Masculino" }));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -274,6 +275,25 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
+        cboxServidorEmail.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "@gmail.com", "@gmail.com.br", "@yahoo.com", "@yahoo.com.br", "@bol.com.br", "@hotmail.com", "@hotmail.com.br", "@outlook.com", "@ig.com.br", "@oi.com.br", "" }));
+
+        try {
+            ftxtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        ftxtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftxtTelefoneActionPerformed(evt);
+            }
+        });
+
+        cboxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        cboxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        cboxAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -285,6 +305,12 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -293,41 +319,42 @@ public class Registro extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cboxAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel10))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel2))
                                         .addGap(24, 24, 24)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(20, 20, 20)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel6)))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(143, 143, 143)
-                                        .addComponent(jLabel10)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cboxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                .addComponent(txtEmail)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(cboxServidorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(17, 17, 17)))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel4))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cboxSexo, 0, 205, Short.MAX_VALUE)
+                                    .addComponent(pwdSenha)
+                                    .addComponent(ftxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,21 +364,26 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addComponent(jLabel6)
                     .addComponent(cboxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(cboxServidorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(cboxDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboxAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(ftxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
@@ -372,9 +404,9 @@ public class Registro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(25, 25, 25)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(85, 85, 85))
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,56 +423,75 @@ public class Registro extends javax.swing.JFrame {
         Usuario usuario = new Usuario();
         AreaAtuacao areaAtuacao = new AreaAtuacao();
         AreaInteresse areaInteresse = new AreaInteresse();
+        int retorno = 0;
         
-        usuario.setNome(txtNome.getText());
-        usuario.setEmail(txtEmail.getText());
-        usuario.setSenha(txtSenha.getText());
-        usuario.setSexo(cboxSexo.getSelectedItem().toString());
-        usuario.setDataNascimento(txtDataNascimento.getText());
-        usuario.setTelefone(Integer.parseInt(txtTelefone.getText()));
-        usuario.setCurriculo(txtCurriculo.getText());
-        
-        areaAtuacao.setCalculo(AACalculo.isSelected());
-        areaAtuacao.setAlgebra(AAAlgebra.isSelected());
-        areaAtuacao.setFisica(AAFisica.isSelected());
-        areaAtuacao.setFilosofia(AAFilosofia.isSelected());
-        areaAtuacao.setHistoria(AAHistoria.isSelected());
-        areaAtuacao.setLogica(AALogica.isSelected());
-        areaAtuacao.setMatematica(AAMatematica.isSelected());
-        areaAtuacao.setOutro(AAOutro.isSelected());
-        
-        areaInteresse.setCalculo(AICalculo.isSelected());
-        areaInteresse.setAlgebra(AIAlgebra.isSelected());
-        areaInteresse.setFisica(AIFisica.isSelected());
-        areaInteresse.setFilosofia(AIFilosofia.isSelected());
-        areaInteresse.setHistoria(AIHistoria.isSelected());
-        areaInteresse.setLogica(AILogica.isSelected());
-        areaInteresse.setMatematica(AIMatematica.isSelected());
-        areaInteresse.setOutro(AIOutro.isSelected());
-        
-        if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
-          (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
-          (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
-            usuario.setAprendiz(true);
-            if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
-              (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
-              (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
-                usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-                TelaLogin tela = new TelaLogin();
-                tela.setVisible(true);
-                dispose();
-               
+        if((!txtNome.getText().equals("")) && (!txtEmail.getText().equals("")) && 
+          (!cboxServidorEmail.getSelectedItem().toString().equals("Selecione")) && 
+          (!pwdSenha.getText().equals("")) && (!txtCurriculo.getText().equals("")) &&
+          (!(cboxDia.getSelectedItem().equals("--")) && !(cboxMes.getSelectedItem().equals("--")) && !(cboxAno.getSelectedItem().equals("--"))) ){
+            
+            usuario.setNome(txtNome.getText());
+            usuario.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
+            usuario.setSenha(pwdSenha.getText());
+            usuario.setSexo(cboxSexo.getSelectedItem().toString());
+            usuario.setDataNascimento(cboxAno.getSelectedItem().toString() + "-" + cboxMes.getSelectedItem().toString() + "-" + cboxDia.getSelectedItem().toString());
+            usuario.setTelefone(ftxtTelefone.getText());
+            usuario.setCurriculo(txtCurriculo.getText());
+
+            areaAtuacao.setCalculo(AACalculo.isSelected());
+            areaAtuacao.setAlgebra(AAAlgebra.isSelected());
+            areaAtuacao.setFisica(AAFisica.isSelected());
+            areaAtuacao.setFilosofia(AAFilosofia.isSelected());
+            areaAtuacao.setHistoria(AAHistoria.isSelected());
+            areaAtuacao.setLogica(AALogica.isSelected());
+            areaAtuacao.setMatematica(AAMatematica.isSelected());
+            areaAtuacao.setOutro(AAOutro.isSelected());
+
+            areaInteresse.setCalculo(AICalculo.isSelected());
+            areaInteresse.setAlgebra(AIAlgebra.isSelected());
+            areaInteresse.setFisica(AIFisica.isSelected());
+            areaInteresse.setFilosofia(AIFilosofia.isSelected());
+            areaInteresse.setHistoria(AIHistoria.isSelected());
+            areaInteresse.setLogica(AILogica.isSelected());
+            areaInteresse.setMatematica(AIMatematica.isSelected());
+            areaInteresse.setOutro(AIOutro.isSelected());
+
+            if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
+              (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
+              (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
+                usuario.setAprendiz(true);
+                if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
+                  (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
+                  (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
+                    retorno = usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                    if(retorno == 0){
+                        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                        TelaLogin tela = new TelaLogin();
+                        tela.setVisible(true);
+                        dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
+                }
             }else{
-                JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
+                usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                if(retorno == 0){
+                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                    TelaLogin tela = new TelaLogin();
+                    tela.setVisible(true);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
             }
+
         }else{
-            usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-            TelaLogin tela = new TelaLogin();
-            tela.setVisible(true);
-            dispose();
+            JOptionPane.showMessageDialog(null, "Campos obrigatórios não foram preenchidos", "Campos obrigatórios", JOptionPane.ERROR_MESSAGE);            
         }
+              
+        
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -456,6 +507,10 @@ public class Registro extends javax.swing.JFrame {
     private void AIOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AIOutroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AIOutroActionPerformed
+
+    private void ftxtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftxtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftxtTelefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -511,7 +566,12 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JCheckBox AIOutro;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> cboxAno;
+    private javax.swing.JComboBox<String> cboxDia;
+    private javax.swing.JComboBox<String> cboxMes;
+    private javax.swing.JComboBox<String> cboxServidorEmail;
     private javax.swing.JComboBox<String> cboxSexo;
+    private javax.swing.JFormattedTextField ftxtTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -525,11 +585,9 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPasswordField pwdSenha;
     private javax.swing.JTextField txtCurriculo;
-    private javax.swing.JTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSenha;
-    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
