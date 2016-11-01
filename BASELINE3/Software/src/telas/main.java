@@ -47,6 +47,7 @@ public class main extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(14, 287, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +63,7 @@ public class main extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(7, 148, 0, 0);
         getContentPane().add(jButton1, gridBagConstraints);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Logar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

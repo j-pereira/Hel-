@@ -311,6 +311,8 @@ public class Usuario {
     }
 
     
+    
+    
     public List<Usuario> pesquisarTodosUsuarios(){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
@@ -354,7 +356,9 @@ public class Usuario {
     }
     
     
-   
+    
+    
+    
     
     
     
@@ -365,8 +369,7 @@ public class Usuario {
   //teste Jéssica
   //teste software 
 
-
+    
     
     //fim da classe 
-
 }

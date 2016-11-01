@@ -48,17 +48,8 @@ public class Pesquisa extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        AICalculo = new javax.swing.JCheckBox();
-        AIAlgebra = new javax.swing.JCheckBox();
-        AIFisica = new javax.swing.JCheckBox();
-        AIFilosofia = new javax.swing.JCheckBox();
-        AIHistoria = new javax.swing.JCheckBox();
-        AILogica = new javax.swing.JCheckBox();
-        AIMatematica = new javax.swing.JCheckBox();
-        AIOutro = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnPesquisar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         AACalculo = new javax.swing.JCheckBox();
@@ -69,8 +60,18 @@ public class Pesquisa extends javax.swing.JFrame {
         AALogica = new javax.swing.JCheckBox();
         AAMatematica = new javax.swing.JCheckBox();
         AAOutro = new javax.swing.JCheckBox();
-        btnPesquisar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        AICalculo = new javax.swing.JCheckBox();
+        AIAlgebra = new javax.swing.JCheckBox();
+        AIFisica = new javax.swing.JCheckBox();
+        AIFilosofia = new javax.swing.JCheckBox();
+        AIHistoria = new javax.swing.JCheckBox();
+        AILogica = new javax.swing.JCheckBox();
+        AIMatematica = new javax.swing.JCheckBox();
+        AIOutro = new javax.swing.JCheckBox();
         rdoTodos = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -85,7 +86,7 @@ public class Pesquisa extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("PESQUISA");
 
-        btnHome.setBackground(new java.awt.Color(112, 128, 144));
+        btnHome.setBackground(new java.awt.Color(153, 153, 153));
         btnHome.setForeground(new java.awt.Color(112, 128, 144));
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/Home.png"))); // NOI18N
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,7 @@ public class Pesquisa extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setBackground(new java.awt.Color(112, 128, 144));
+        btnSair.setBackground(new java.awt.Color(153, 153, 153));
         btnSair.setForeground(new java.awt.Color(112, 128, 144));
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/BotaoSair.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -109,13 +110,13 @@ public class Pesquisa extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(119, 119, 119)
+                .addGap(120, 120, 120)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,104 +126,36 @@ public class Pesquisa extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnHome)
-                            .addComponent(btnSair))))
+                            .addComponent(btnSair)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setPreferredSize(new java.awt.Dimension(261, 135));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel14.setText("Pesquisar Áreas de interesse:");
+        btnPesquisar.setBackground(new java.awt.Color(153, 153, 153));
+        btnPesquisar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
-        AICalculo.setBackground(new java.awt.Color(204, 204, 255));
-        AICalculo.setText("Cálculo");
-
-        AIAlgebra.setBackground(new java.awt.Color(204, 204, 255));
-        AIAlgebra.setText("Álgebra");
-
-        AIFisica.setBackground(new java.awt.Color(204, 204, 255));
-        AIFisica.setText("Física");
-
-        AIFilosofia.setBackground(new java.awt.Color(204, 204, 255));
-        AIFilosofia.setText("Filosofia");
-
-        AIHistoria.setBackground(new java.awt.Color(204, 204, 255));
-        AIHistoria.setText("História");
-
-        AILogica.setBackground(new java.awt.Color(204, 204, 255));
-        AILogica.setText("Lógica");
-
-        AIMatematica.setBackground(new java.awt.Color(204, 204, 255));
-        AIMatematica.setText("Matemática");
-
-        AIOutro.setBackground(new java.awt.Color(204, 204, 255));
-        AIOutro.setText("Outros");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AICalculo)
-                            .addComponent(AIAlgebra)
-                            .addComponent(AIFisica)
-                            .addComponent(AIFilosofia))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AIHistoria)
-                            .addComponent(AILogica)
-                            .addComponent(AIMatematica)
-                            .addComponent(AIOutro)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AICalculo)
-                    .addComponent(AIHistoria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AIAlgebra)
-                    .addComponent(AILogica))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AIFisica)
-                    .addComponent(AIMatematica))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AIFilosofia)
-                    .addComponent(AIOutro))
-                .addGap(0, 9, Short.MAX_VALUE))
-        );
-
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        jLabel4.setText("FILTROS");
-
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(218, 218, 218));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setPreferredSize(new java.awt.Dimension(261, 135));
 
+        jLabel16.setFont(new java.awt.Font("Simplified Arabic", 3, 16)); // NOI18N
         jLabel16.setText("Pesquisar Áreas de atuação:");
 
-        AACalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AACalculo.setBackground(new java.awt.Color(216, 216, 216));
+        AACalculo.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AACalculo.setText("Cálculo");
         AACalculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -235,25 +168,32 @@ public class Pesquisa extends javax.swing.JFrame {
             }
         });
 
-        AAAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AAAlgebra.setBackground(new java.awt.Color(216, 216, 216));
+        AAAlgebra.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AAAlgebra.setText("Álgebra");
 
-        AAFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AAFisica.setBackground(new java.awt.Color(216, 216, 216));
+        AAFisica.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AAFisica.setText("Física");
 
-        AAFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AAFilosofia.setBackground(new java.awt.Color(216, 216, 216));
+        AAFilosofia.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AAFilosofia.setText("Filosofia");
 
-        AAHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AAHistoria.setBackground(new java.awt.Color(216, 216, 216));
+        AAHistoria.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AAHistoria.setText("História");
 
-        AALogica.setBackground(new java.awt.Color(204, 204, 255));
+        AALogica.setBackground(new java.awt.Color(216, 216, 216));
+        AALogica.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AALogica.setText("Lógica");
 
-        AAMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AAMatematica.setBackground(new java.awt.Color(216, 216, 216));
+        AAMatematica.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AAMatematica.setText("Matemática");
 
-        AAOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AAOutro.setBackground(new java.awt.Color(216, 216, 216));
+        AAOutro.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
         AAOutro.setText("Outros");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -265,14 +205,14 @@ public class Pesquisa extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel16)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 23, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AACalculo)
                             .addComponent(AAAlgebra)
                             .addComponent(AAFisica)
                             .addComponent(AAFilosofia))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AAHistoria)
                             .addComponent(AALogica)
@@ -290,9 +230,9 @@ public class Pesquisa extends javax.swing.JFrame {
                     .addComponent(AACalculo)
                     .addComponent(AAHistoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(AAAlgebra)
-                    .addComponent(AALogica))
+                    .addComponent(AALogica, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AAFisica)
@@ -301,17 +241,10 @@ public class Pesquisa extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AAFilosofia)
                     .addComponent(AAOutro))
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
 
-        btnPesquisar.setText("Pesquisar");
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
-
-        btnVoltar.setBackground(new java.awt.Color(112, 128, 144));
+        btnVoltar.setBackground(new java.awt.Color(153, 153, 153));
         btnVoltar.setForeground(new java.awt.Color(112, 128, 144));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/Voltar.png"))); // NOI18N
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +253,102 @@ public class Pesquisa extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel4.setText("Filtros");
+
+        jPanel2.setBackground(new java.awt.Color(216, 216, 216));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setPreferredSize(new java.awt.Dimension(261, 135));
+
+        jLabel14.setFont(new java.awt.Font("Simplified Arabic", 3, 16)); // NOI18N
+        jLabel14.setText("Pesquisar Áreas de interesse:");
+
+        AICalculo.setBackground(new java.awt.Color(216, 216, 216));
+        AICalculo.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AICalculo.setText("Cálculo");
+
+        AIAlgebra.setBackground(new java.awt.Color(216, 216, 216));
+        AIAlgebra.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AIAlgebra.setText("Álgebra");
+
+        AIFisica.setBackground(new java.awt.Color(216, 216, 216));
+        AIFisica.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AIFisica.setText("Física");
+
+        AIFilosofia.setBackground(new java.awt.Color(216, 216, 216));
+        AIFilosofia.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AIFilosofia.setText("Filosofia");
+
+        AIHistoria.setBackground(new java.awt.Color(216, 216, 216));
+        AIHistoria.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AIHistoria.setText("História");
+
+        AILogica.setBackground(new java.awt.Color(216, 216, 216));
+        AILogica.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AILogica.setText("Lógica");
+
+        AIMatematica.setBackground(new java.awt.Color(216, 216, 216));
+        AIMatematica.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AIMatematica.setText("Matemática");
+
+        AIOutro.setBackground(new java.awt.Color(216, 216, 216));
+        AIOutro.setFont(new java.awt.Font("Simplified Arabic", 0, 14)); // NOI18N
+        AIOutro.setText("Outros");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AICalculo)
+                            .addComponent(AIAlgebra)
+                            .addComponent(AIFisica)
+                            .addComponent(AIFilosofia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AIHistoria)
+                                    .addComponent(AILogica)
+                                    .addComponent(AIOutro))
+                                .addGap(32, 32, 32))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(AIMatematica)
+                                .addContainerGap())))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addContainerGap(21, Short.MAX_VALUE))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AICalculo)
+                    .addComponent(AIHistoria))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AIAlgebra)
+                    .addComponent(AILogica))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AIFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AIMatematica, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AIFilosofia)
+                    .addComponent(AIOutro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        rdoTodos.setBackground(new java.awt.Color(255, 255, 255));
+        rdoTodos.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         rdoTodos.setText("Pesquisar todos os usuários");
         rdoTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,66 +356,80 @@ public class Pesquisa extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Simplified Arabic", 1, 16)); // NOI18N
         jLabel2.setText("Pesquisa por nome: ");
 
+        txtNome.setBackground(new java.awt.Color(247, 243, 243));
+        txtNome.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(321, 321, 321)
+                        .addComponent(btnPesquisar))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rdoTodos))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(399, 399, 399)
+                        .addComponent(jLabel4)))
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rdoTodos))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnPesquisar))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(376, 376, 376)
-                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(386, 386, 386)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(148, 148, 148)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rdoTodos)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(178, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rdoTodos))
-                .addGap(18, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(41, 41, 41)
-                .addComponent(btnPesquisar)
-                .addGap(12, 12, 12)
-                .addComponent(btnVoltar)
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -401,9 +444,10 @@ public class Pesquisa extends javax.swing.JFrame {
         String nome;
         Boolean todos;
         
+        
         usuario.setNome(txtNome.getText());
         todos = rdoTodos.isSelected();
-               
+
         areaAtuacao.setCalculo(AACalculo.isSelected());
         areaAtuacao.setAlgebra(AAAlgebra.isSelected());
         areaAtuacao.setFisica(AAFisica.isSelected());
@@ -412,7 +456,7 @@ public class Pesquisa extends javax.swing.JFrame {
         areaAtuacao.setLogica(AALogica.isSelected());
         areaAtuacao.setMatematica(AAMatematica.isSelected());
         areaAtuacao.setOutro(AAOutro.isSelected());
-        
+
         areaInteresse.setCalculo(AICalculo.isSelected());
         areaInteresse.setAlgebra(AIAlgebra.isSelected());
         areaInteresse.setFisica(AIFisica.isSelected());
@@ -422,23 +466,35 @@ public class Pesquisa extends javax.swing.JFrame {
         areaInteresse.setMatematica(AIMatematica.isSelected());
         areaInteresse.setOutro(AIOutro.isSelected());
         
-        
-        if(!usuario.getNome().equals("")){
-            listaUsuario = usuario.pesquisarUsuarioPorNome();
-        } else if (todos == true){
-            listaUsuario = usuario.pesquisarTodosUsuarios();
-        } else if(isAreaAtuacao() && !isAreaInteresse()) {
-            listaUsuario = areaAtuacao.pesquisarAreaAtuacao();
-        } else if(isAreaInteresse() && !isAreaAtuacao()) {
-            listaUsuario = areaInteresse.pesquisarAreaInteresse();
-        } else if(isAreaAtuacao() && isAreaInteresse()){
-            listaUsuario = areaAtuacao.pesquisarAreasAtuacaoInteresse(areaInteresse);
+       
+        if( (rdoTodos.isSelected()==false) && (txtNome.getText().equals("")) && 
+            (areaInteresse.isCalculo()==false)&&(areaInteresse.isAlgebra()==false)&&(areaInteresse.isFisica()==false)&&(areaInteresse.isFilosofia()==false)&&(areaInteresse.isHistoria()==false)&&(areaInteresse.isLogica()==false)&&(areaInteresse.isMatematica()==false)&&(areaInteresse.isOutro()==false)  
+            &&
+            (areaAtuacao.isCalculo()==false)&&(areaAtuacao.isAlgebra()==false)&&(areaAtuacao.isFisica()==false)&&(areaAtuacao.isFilosofia()==false)&&(areaAtuacao.isHistoria()==false)&&(areaAtuacao.isLogica()==false)&&(areaAtuacao.isMatematica()==false)&&(areaAtuacao.isOutro()==false)
+            ){
+            JOptionPane.showMessageDialog(null, "Nenhum campo selecionado."  ,"Erro na pesquisa",JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+            if(!usuario.getNome().equals("")){
+                listaUsuario = usuario.pesquisarUsuarioPorNome();
+            } else if (todos == true){
+                listaUsuario = usuario.pesquisarTodosUsuarios();
+            } else if(isAreaAtuacao() && !isAreaInteresse()) {
+                listaUsuario = areaAtuacao.pesquisarAreaAtuacao();
+            } else if(isAreaInteresse() && !isAreaAtuacao()) {
+                listaUsuario = areaInteresse.pesquisarAreaInteresse();
+            } else if(isAreaAtuacao() && isAreaInteresse()){
+                listaUsuario = areaAtuacao.pesquisarAreasAtuacaoInteresse(areaInteresse);
+            }
+
+
+            ResultadoPesquisa tela = new ResultadoPesquisa(listaUsuario);
+            tela.setVisible(true);
+            dispose();
         }
         
         
-        ResultadoPesquisa tela = new ResultadoPesquisa(listaUsuario);
-        tela.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_btnPesquisarActionPerformed
     
     private boolean isAreaAtuacao() {
@@ -449,6 +505,7 @@ public class Pesquisa extends javax.swing.JFrame {
         return false;
     }
     
+
     private boolean isAreaInteresse() {
         for(Pair<String, Boolean> area : areaInteresse.areasSelecionadas()) {
             if(area.getValue() == true)
@@ -456,6 +513,8 @@ public class Pesquisa extends javax.swing.JFrame {
         } 
         return false;
     }
+    
+
     
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         Home tela = new Home();
@@ -644,6 +703,7 @@ public class Pesquisa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton rdoTodos;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables

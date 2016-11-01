@@ -6,7 +6,10 @@
 package telas;
 
 import com.bd.Instancia;
+import com.dominio.AreaAtuacao;
 import com.dominio.AreaInteresse;
+import com.dominio.Usuario;
+import javafx.util.Pair;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +21,9 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
     /**
      * Creates new form AlterarAreasInteresse
      */
+    private AreaInteresse areaInteresse;
+    private AreaAtuacao areaAtuacao;
+    
     public AlterarAreasInteresse() {
         initComponents();
         setLocationRelativeTo(null);
@@ -33,14 +39,15 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnVoltar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnVoltar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
         AICalculo = new javax.swing.JCheckBox();
         AIAlgebra = new javax.swing.JCheckBox();
         AIFisica = new javax.swing.JCheckBox();
@@ -49,28 +56,19 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
         AILogica = new javax.swing.JCheckBox();
         AIMatematica = new javax.swing.JCheckBox();
         AIOutro = new javax.swing.JCheckBox();
-        btnSalvar = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnVoltar.setBackground(new java.awt.Color(112, 128, 144));
-        btnVoltar.setForeground(new java.awt.Color(112, 128, 144));
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/Voltar.png"))); // NOI18N
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(112, 128, 144));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/logopequeno.png"))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 44)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("ÁREAS DE INTERESSE");
 
-        btnSair.setBackground(new java.awt.Color(112, 128, 144));
+        btnSair.setBackground(new java.awt.Color(153, 153, 153));
         btnSair.setForeground(new java.awt.Color(112, 128, 144));
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/BotaoSair.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +77,7 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setBackground(new java.awt.Color(112, 128, 144));
+        btnHome.setBackground(new java.awt.Color(153, 153, 153));
         btnHome.setForeground(new java.awt.Color(112, 128, 144));
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/Home.png"))); // NOI18N
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -94,13 +92,13 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(75, 75, 75)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,21 +106,42 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnHome)
-                            .addComponent(btnSair)
-                            .addComponent(jLabel3))))
+                            .addComponent(btnSair)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnVoltar.setBackground(new java.awt.Color(153, 153, 153));
+        btnVoltar.setForeground(new java.awt.Color(112, 128, 144));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/Voltar.png"))); // NOI18N
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnSalvar.setBackground(new java.awt.Color(153, 153, 153));
+        btnSalvar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        jPanel3.setBackground(new java.awt.Color(214, 214, 214));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setPreferredSize(new java.awt.Dimension(261, 140));
 
-        jLabel16.setText("Editar áreas:");
-
-        AICalculo.setBackground(new java.awt.Color(204, 204, 255));
+        AICalculo.setBackground(new java.awt.Color(214, 214, 214));
+        AICalculo.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AICalculo.setText("Cálculo");
         AICalculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,57 +154,55 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
             }
         });
 
-        AIAlgebra.setBackground(new java.awt.Color(204, 204, 255));
+        AIAlgebra.setBackground(new java.awt.Color(214, 214, 214));
+        AIAlgebra.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AIAlgebra.setText("Álgebra");
 
-        AIFisica.setBackground(new java.awt.Color(204, 204, 255));
+        AIFisica.setBackground(new java.awt.Color(214, 214, 214));
+        AIFisica.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AIFisica.setText("Física");
 
-        AIFilosofia.setBackground(new java.awt.Color(204, 204, 255));
+        AIFilosofia.setBackground(new java.awt.Color(214, 214, 214));
+        AIFilosofia.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AIFilosofia.setText("Filosofia");
 
-        AIHistoria.setBackground(new java.awt.Color(204, 204, 255));
+        AIHistoria.setBackground(new java.awt.Color(214, 214, 214));
+        AIHistoria.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AIHistoria.setText("História");
 
-        AILogica.setBackground(new java.awt.Color(204, 204, 255));
+        AILogica.setBackground(new java.awt.Color(214, 214, 214));
+        AILogica.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AILogica.setText("Lógica");
 
-        AIMatematica.setBackground(new java.awt.Color(204, 204, 255));
+        AIMatematica.setBackground(new java.awt.Color(214, 214, 214));
+        AIMatematica.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AIMatematica.setText("Matemática");
 
-        AIOutro.setBackground(new java.awt.Color(204, 204, 255));
+        AIOutro.setBackground(new java.awt.Color(214, 214, 214));
+        AIOutro.setFont(new java.awt.Font("Simplified Arabic", 0, 16)); // NOI18N
         AIOutro.setText("Outros");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AICalculo)
-                            .addComponent(AIAlgebra)
-                            .addComponent(AIFisica)
-                            .addComponent(AIFilosofia))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AIHistoria)
-                            .addComponent(AILogica)
-                            .addComponent(AIMatematica)
-                            .addComponent(AIOutro))))
-                .addContainerGap())
+                    .addComponent(AICalculo)
+                    .addComponent(AIAlgebra)
+                    .addComponent(AIFisica)
+                    .addComponent(AIFilosofia))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AIHistoria)
+                    .addComponent(AILogica)
+                    .addComponent(AIMatematica)
+                    .addComponent(AIOutro)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16)
-                .addGap(7, 7, 7)
+                .addGap(0, 0, 0)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AICalculo)
                     .addComponent(AIHistoria))
@@ -197,50 +214,57 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AIFisica)
                     .addComponent(AIMatematica))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(AIFilosofia)
-                    .addComponent(AIOutro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AIOutro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AIFilosofia))
+                .addGap(36, 36, 36))
         );
 
-        btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
+        jLabel16.setFont(new java.awt.Font("Simplified Arabic", 1, 18)); // NOI18N
+        jLabel16.setText("Editar áreas:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(243, 243, 243)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel16)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(26, 26, 26)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(391, 391, 391))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(291, 291, 291))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVoltar)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -278,7 +302,9 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Instancia instancia = Instancia.getInstancia();
-        AreaInteresse areaInteresse = new AreaInteresse();
+        areaInteresse = new AreaInteresse();
+        areaAtuacao = new AreaAtuacao();
+        Boolean AI;
         int retorno;
         
         areaInteresse.setCalculo(AICalculo.isSelected());
@@ -289,23 +315,43 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
         areaInteresse.setLogica(AILogica.isSelected());
         areaInteresse.setMatematica(AIMatematica.isSelected());
         areaInteresse.setOutro(AIOutro.isSelected());
-
-        retorno = areaInteresse.atualizarAreaInteresse();
-        if(retorno == 0){
-            JOptionPane.showMessageDialog(null, "Áreas de interesse atualizadas com sucesso","Atualização realizada",JOptionPane.PLAIN_MESSAGE);
-            Configuração tela = new Configuração();
-            tela.setVisible(true);
-            dispose();   
-        }else{
-            JOptionPane.showMessageDialog(null, "Atualização não realizada", "Erro", JOptionPane.ERROR_MESSAGE);
-            DadosPessoais tela = new DadosPessoais();
-            tela.setVisible(true);
-            dispose();
-            
-        }
         
-    }//GEN-LAST:event_btnSalvarActionPerformed
+        AI = isSelectedAreaInteresse();
+        if((AI==false)&&(Usuario.usuarioAtual.isAprendiz() == true)){
+            JOptionPane.showMessageDialog(null, "Cada usuario deve ter pelo menos uma area de atuação ou de interesse.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+        
+            retorno = areaInteresse.atualizarAreaInteresse();
+            if(retorno == 0){
+                JOptionPane.showMessageDialog(null, "Áreas de interesse atualizadas com sucesso","Atualização realizada",JOptionPane.PLAIN_MESSAGE);
+                Configuração tela = new Configuração();
+                tela.setVisible(true);
+                dispose();   
+            }else{
+                JOptionPane.showMessageDialog(null, "Atualização não realizada", "Erro", JOptionPane.ERROR_MESSAGE);
+                DadosPessoais tela = new DadosPessoais();
+                tela.setVisible(true);
+                dispose();
 
+            }
+        }  
+    }//GEN-LAST:event_btnSalvarActionPerformed
+    
+    private boolean isSelectedAreaInteresse() {
+        int cont = 0;
+        for(Pair<String, Boolean> area : areaInteresse.areasSelecionadas()) {
+            if(area.getValue() == false)
+                cont ++;
+        } 
+        if(cont == 8){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -358,6 +404,7 @@ public class AlterarAreasInteresse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
