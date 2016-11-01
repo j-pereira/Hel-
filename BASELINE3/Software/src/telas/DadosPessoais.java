@@ -342,30 +342,33 @@ public class DadosPessoais extends javax.swing.JFrame {
         if(cboxServidorEmail.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(null, "Selecione campo email.", "Erro", JOptionPane.ERROR_MESSAGE);
         }else{
-            Usuario.usuarioAtual.setNome(txtNome.getText());
-            Usuario.usuarioAtual.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
-            Usuario.usuarioAtual.setSenha(pwdSenha.getText());
-            Usuario.usuarioAtual.setSexo(cboxSexo.getSelectedItem().toString());
-            Usuario.usuarioAtual.setDataNascimento(cboxAno.getSelectedItem().toString() + "-" + cboxMes.getSelectedItem().toString() + "-" + cboxDia.getSelectedItem().toString());
-            Usuario.usuarioAtual.setTelefone(ftxtTelefone.getText());
-            Usuario.usuarioAtual.setCurriculo(txtCurriculo.getText());
-
-            retorno = Usuario.usuarioAtual.atualizarUsuario();
-
-            if(retorno == 0){
-                JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
-                Configuração tela = new Configuração();
-                tela.setVisible(true);
-                dispose();   
+            if((cboxAno.getSelectedIndex()==0)||(cboxMes.getSelectedIndex()==0)||(cboxDia.getSelectedIndex()==0)){
+                JOptionPane.showMessageDialog(null, "Preencha data de nascimento.", "Erro", JOptionPane.ERROR_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(null, "Atualização não realizada", "Erro", JOptionPane.ERROR_MESSAGE);
-                DadosPessoais tela = new DadosPessoais();
-                tela.setVisible(true);
-                dispose();
+                Usuario.usuarioAtual.setNome(txtNome.getText());
+                Usuario.usuarioAtual.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
+                Usuario.usuarioAtual.setSenha(pwdSenha.getText());
+                Usuario.usuarioAtual.setSexo(cboxSexo.getSelectedItem().toString());
+                Usuario.usuarioAtual.setDataNascimento(cboxAno.getSelectedItem().toString() + "-" + cboxMes.getSelectedItem().toString() + "-" + cboxDia.getSelectedItem().toString());
+                Usuario.usuarioAtual.setTelefone(ftxtTelefone.getText());
+                Usuario.usuarioAtual.setCurriculo(txtCurriculo.getText());
 
+                retorno = Usuario.usuarioAtual.atualizarUsuario();
+
+                if(retorno == 0){
+                    JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso");
+                    Configuração tela = new Configuração();
+                    tela.setVisible(true);
+                    dispose();   
+                }else{
+                    JOptionPane.showMessageDialog(null, "Atualização não realizada", "Erro", JOptionPane.ERROR_MESSAGE);
+                    DadosPessoais tela = new DadosPessoais();
+                    tela.setVisible(true);
+                    dispose();
+
+                }
             }
-        }
-        
+        } 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cboxServidorEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxServidorEmailActionPerformed

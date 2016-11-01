@@ -479,41 +479,56 @@ public class Registro extends javax.swing.JFrame {
           (!cboxServidorEmail.getSelectedItem().toString().equals("Selecione")) && 
           (!pwdSenha.getText().equals("")) && (!txtCurriculo.getText().equals("")) &&
           (!(cboxDia.getSelectedItem().equals("--")) && !(cboxMes.getSelectedItem().equals("--")) && !(cboxAno.getSelectedItem().equals("--"))) ){
-            
-            usuario.setNome(txtNome.getText());
-            usuario.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
-            usuario.setSenha(pwdSenha.getText());
-            usuario.setSexo(cboxSexo.getSelectedItem().toString());
-            usuario.setDataNascimento(cboxAno.getSelectedItem().toString() + "-" + cboxMes.getSelectedItem().toString() + "-" + cboxDia.getSelectedItem().toString());
-            usuario.setTelefone(ftxtTelefone.getText());
-            usuario.setCurriculo(txtCurriculo.getText());
+            if((cboxAno.getSelectedIndex()==0)||(cboxMes.getSelectedIndex()==0)||(cboxDia.getSelectedIndex()==0)){
+                JOptionPane.showMessageDialog(null, "Preencha data de nascimento.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }else{
+                usuario.setNome(txtNome.getText());
+                usuario.setEmail(txtEmail.getText() + cboxServidorEmail.getSelectedItem().toString());
+                usuario.setSenha(pwdSenha.getText());
+                usuario.setSexo(cboxSexo.getSelectedItem().toString());
+                usuario.setDataNascimento(cboxAno.getSelectedItem().toString() + "-" + cboxMes.getSelectedItem().toString() + "-" + cboxDia.getSelectedItem().toString());
+                usuario.setTelefone(ftxtTelefone.getText());
+                usuario.setCurriculo(txtCurriculo.getText());
 
-            areaAtuacao.setCalculo(AACalculo.isSelected());
-            areaAtuacao.setAlgebra(AAAlgebra.isSelected());
-            areaAtuacao.setFisica(AAFisica.isSelected());
-            areaAtuacao.setFilosofia(AAFilosofia.isSelected());
-            areaAtuacao.setHistoria(AAHistoria.isSelected());
-            areaAtuacao.setLogica(AALogica.isSelected());
-            areaAtuacao.setMatematica(AAMatematica.isSelected());
-            areaAtuacao.setOutro(AAOutro.isSelected());
+                areaAtuacao.setCalculo(AACalculo.isSelected());
+                areaAtuacao.setAlgebra(AAAlgebra.isSelected());
+                areaAtuacao.setFisica(AAFisica.isSelected());
+                areaAtuacao.setFilosofia(AAFilosofia.isSelected());
+                areaAtuacao.setHistoria(AAHistoria.isSelected());
+                areaAtuacao.setLogica(AALogica.isSelected());
+                areaAtuacao.setMatematica(AAMatematica.isSelected());
+                areaAtuacao.setOutro(AAOutro.isSelected());
 
-            areaInteresse.setCalculo(AICalculo.isSelected());
-            areaInteresse.setAlgebra(AIAlgebra.isSelected());
-            areaInteresse.setFisica(AIFisica.isSelected());
-            areaInteresse.setFilosofia(AIFilosofia.isSelected());
-            areaInteresse.setHistoria(AIHistoria.isSelected());
-            areaInteresse.setLogica(AILogica.isSelected());
-            areaInteresse.setMatematica(AIMatematica.isSelected());
-            areaInteresse.setOutro(AIOutro.isSelected());
+                areaInteresse.setCalculo(AICalculo.isSelected());
+                areaInteresse.setAlgebra(AIAlgebra.isSelected());
+                areaInteresse.setFisica(AIFisica.isSelected());
+                areaInteresse.setFilosofia(AIFilosofia.isSelected());
+                areaInteresse.setHistoria(AIHistoria.isSelected());
+                areaInteresse.setLogica(AILogica.isSelected());
+                areaInteresse.setMatematica(AIMatematica.isSelected());
+                areaInteresse.setOutro(AIOutro.isSelected());
 
-            if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
-              (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
-              (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
-                usuario.setAprendiz(true);
-                if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
-                  (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
-                  (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
-                    retorno = usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                if((areaAtuacao.isCalculo() == false) && (areaAtuacao.isAlgebra() == false) && (areaAtuacao.isFisica() == false) &&
+                  (areaAtuacao.isFilosofia() == false) && (areaAtuacao.isHistoria() == false) && (areaAtuacao.isLogica() == false) &&
+                  (areaAtuacao.isMatematica() == false) && (areaAtuacao.isOutro() == false)){
+                    usuario.setAprendiz(true);
+                    if((areaInteresse.isCalculo() == true) || (areaInteresse.isAlgebra() == true) || (areaInteresse.isFisica() == true) ||
+                      (areaInteresse.isFilosofia() == true) || (areaInteresse.isHistoria() == true) || (areaInteresse.isLogica() == true) ||
+                      (areaInteresse.isMatematica() == true) || (areaInteresse.isOutro() == true)){
+                        retorno = usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
+                        if(retorno == 0){
+                            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
+                            TelaLogin tela = new TelaLogin();
+                            tela.setVisible(true);
+                            dispose();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
+                    }
+                }else{
+                    usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
                     if(retorno == 0){
                         JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
                         TelaLogin tela = new TelaLogin();
@@ -522,21 +537,8 @@ public class Registro extends javax.swing.JFrame {
                     }else{
                         JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null, "Selecione ao menos uma Área de Atuação ou uma Área de Interesse!","Campos não foram preenchidos",JOptionPane.WARNING_MESSAGE);
-                }
-            }else{
-                usuario.cadastrarUsuario(areaAtuacao, areaInteresse);
-                if(retorno == 0){
-                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso","Cadastro efetuado",JOptionPane.PLAIN_MESSAGE);
-                    TelaLogin tela = new TelaLogin();
-                    tela.setVisible(true);
-                    dispose();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Falha ao efetuar cadastro!", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
-
         }else{
             JOptionPane.showMessageDialog(null, "Campos obrigatórios não foram preenchidos", "Campos obrigatórios", JOptionPane.ERROR_MESSAGE);            
         }
