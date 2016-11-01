@@ -194,7 +194,7 @@ public class TelaUsuario extends javax.swing.JFrame {
                             .addComponent(btnHome)
                             .addComponent(btnSair)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(19, 19, 19)
                         .addComponent(lblTitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
