@@ -312,7 +312,6 @@ public class Usuario {
 
     
     
-    
     public List<Usuario> pesquisarTodosUsuarios(){
         Connection conexao = Conexao.getConexao();
         PreparedStatement preparedStatement = null;
@@ -372,4 +371,5 @@ public class Usuario {
     
     
     //fim da classe 
+
 }
