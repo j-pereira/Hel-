@@ -5,6 +5,9 @@
  */
 package telas;
 
+import com.bd.Instancia;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author m174505
@@ -18,6 +21,23 @@ public class main extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        
+        int res;
+        Instancia instancia = Instancia.getInstancia();
+        
+        res = instancia.verificaBD();
+        if(res == 1){
+            JOptionPane.showMessageDialog(null, "BD não existe, criar BD");
+            res = instancia.criarBD();
+            if(res == 1){
+                JOptionPane.showMessageDialog(null, "Erro ao criar Banco de Dados");
+            }else{
+                JOptionPane.showMessageDialog(null, "BD criado");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "BD já existe");
+        }
     }
 
     /**

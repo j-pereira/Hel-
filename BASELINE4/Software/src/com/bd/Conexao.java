@@ -16,16 +16,20 @@ import java.util.logging.Logger;
  * @author Jéssica
  */
 public class Conexao {
-    public static String url = "jdbc:mysql://localhost/helpme";
+    public static String urlSemBD = "jdbc:mysql://localhost?allowMultiQueries=true";
+    public static String urlComBD = "jdbc:mysql://localhost/BDhelpme?allowMultiQueries=true";
     public static String user = "root";
     public static String password = "";
+    
+    
+    
     
     public static Connection getConexao (){
         Connection conexao = null;
         
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conexao = DriverManager.getConnection(url, user, password);
+            conexao = DriverManager.getConnection(urlComBD, user, password);
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -33,4 +37,21 @@ public class Conexao {
         return conexao;
         
     }
+    
+    public static Connection getConexaoSemBD (){
+        Connection conexao = null;
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conexao = DriverManager.getConnection(urlSemBD, user, password);
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return conexao;
+        
+    }
+    
+    
+    
 }
