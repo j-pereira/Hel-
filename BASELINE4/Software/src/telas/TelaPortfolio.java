@@ -266,7 +266,10 @@ public class TelaPortfolio extends javax.swing.JFrame {
             portfolio.setNome(file.getName());
             portfolio.setCaminho("C:/portfolio/");
             
-            
+            /*
+            File diretorio = new File("C:\\Macros");
+            diretorio.mkdir();            
+            */
             
             retorno = portfolio.adicionarItem(origem, destino);
             if(retorno == 0){
