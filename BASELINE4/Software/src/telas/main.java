@@ -27,16 +27,16 @@ public class main extends javax.swing.JFrame {
         
         res = instancia.verificaBD();
         if(res == 1){
-            JOptionPane.showMessageDialog(null, "BD não existe, criar BD");
+            //JOptionPane.showMessageDialog(null, "BD não existe, criar BD");
             res = instancia.criarBD();
             if(res == 1){
                 JOptionPane.showMessageDialog(null, "Erro ao criar Banco de Dados");
             }else{
-                JOptionPane.showMessageDialog(null, "BD criado");
+                //JOptionPane.showMessageDialog(null, "BD criado");
             }
             
         }else{
-            JOptionPane.showMessageDialog(null, "BD já existe");
+            //JOptionPane.showMessageDialog(null, "BD já existe");
         }
     }
 
