@@ -30,7 +30,7 @@ public class main extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, "BD não existe, criar BD");
             res = instancia.criarBD();
             if(res == 1){
-                JOptionPane.showMessageDialog(null, "Erro ao criar Banco de Dados");
+                //JOptionPane.showMessageDialog(null, "Erro ao criar Banco de Dados");
             }else{
                 //JOptionPane.showMessageDialog(null, "BD criado");
             }
